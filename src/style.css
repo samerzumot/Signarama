@@ -103,7 +103,7 @@ body {
   color: var(--text-light);
   overflow: hidden;
   margin-top: 60px;
-  padding: 60px 0;
+  background-color: #0033a0;
 }
 
 .video-background {
