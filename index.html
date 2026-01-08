@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaughan Sign Company | Custom Signs & Graphics | Signarama</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header class="main-header">
+    <div class="container">
+      <a href="#" class="logo">Signarama</a>
+      <nav>
+        <ul>
+          <li><a href="#products">Products</a></li>
+          <li class="desktop-only"><a href="#contact-map">About Us</a></li>
+          <li><a href="tel:905-597-8635" class="btn-call">📞 (905) 597-8635</a></li>
+          <li><a href="#quote" class="btn-quote">Get a Quote</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="video-background">
+        <!-- User provided video expected at this path -->
+        <video autoplay muted loop playsinline id="hero-video"
+          poster="https://placehold.co/1920x1080?text=Signarama+Vaughan">
+          <source src="/assets/video/hero-video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Signage Done Right.</h1>
+          <p>Canada's most trusted partner for comprehensive signage solutions.</p>
+
+          <div class="hero-ctas">
+            <a href="tel:905-597-8635" class="btn-primary btn-large">Call Now for a Quote</a>
+            <a href="sms:9055978635" class="btn-primary btn-sms">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H6L4 18V4H20V16Z" />
+              </svg>
+              Text Us (905) 597-8635
+            </a>
+          </div>
+        </div>
+
+        <!-- Conversion Optimized Quote Form -->
+        <div id="quote" class="hero-form-card">
+          <h3>Get a Free Quote</h3>
+          <p class="form-guarantee">⚡ Same Day Response Guaranteed</p>
+          <form id="quote-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="tel" placeholder="Phone Number" required>
+            <input type="email" placeholder="Email Address" required>
+            <textarea placeholder="Describe your sign needs..." rows="3"></textarea>
+
+            <div class="file-upload-container">
+              <label for="artwork-upload" class="file-upload-label">
+                📎 Upload Artwork (Optional)
+              </label>
+              <input type="file" id="artwork-upload" accept="image/*,.pdf,.ai,.eps">
+            </div>
+
+            <button type="submit" class="btn-submit">Request Quote</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Logos Marquee -->
+    <section class="clients-section">
+      <div class="container">
+        <h2 class="section-title-center">Our Valued Clients</h2>
+        <div class="logo-marquee">
+          <div class="logo-track">
+            <!-- Real Client Logos (Local Assets) -->
+            <span><img src="/assets/images/signarama-canada-signarama-website-client-logo-original-64531f7b20143.jpg"
+                alt="Anytime Fitness"></span>
+            <span><img src="/assets/images/signarama-canada-signarama-website-client-logo-original-64528ace93a4a.jpg"
+                alt="Crumbl Cookies"></span>
+            <span><img src="/assets/images/signarama-canada-signarama-website-client-logo-original-64531f80d206a.jpg"
+                alt="Dunkin Donuts"></span>
+            <span><img src="/assets/images/signarama-canada-signarama-website-client-logo-original-64531f85ab56c.jpg"
+                alt="H&R Block"></span>
+            <span><img src="/assets/images/signarama-canada-signarama-website-client-logo-original-64528876d8d88.jpg"
+                alt="REMAX"></span>
+            <span><img src="/assets/images/signarama-canada-signarama-website-client-logo-original-64531f8f96494.jpg"
+                alt="State Farm"></span>
+            <span><img src="/assets/images/signarama-canada-signarama-website-client-logo-original-64531fa150425.jpg"
+                alt="Nissan"></span>
+            <span><img src="/assets/images/Uber-Logo.png" alt="Uber"></span>
+
+            <!-- Duplicates for Infinite Scroll -->
+            <span><img src="/assets/images/signarama-canada-signarama-website-client-logo-original-64531f7b20143.jpg"
+                alt="Anytime Fitness"></span>
+            <span><img src="/assets/images/signarama-canada-signarama-website-client-logo-original-64528ace93a4a.jpg"
+                alt="Crumbl Cookies"></span>
+            <span><img src="/assets/images/signarama-canada-signarama-website-client-logo-original-64531f80d206a.jpg"
+                alt="Dunkin Donuts"></span>
+            <span><img src="/assets/images/signarama-canada-signarama-website-client-logo-original-64531f85ab56c.jpg"
+                alt="H&R Block"></span>
+            <span><img src="/assets/images/signarama-canada-signarama-website-client-logo-original-64528876d8d88.jpg"
+                alt="REMAX"></span>
+            <span><img src="/assets/images/signarama-canada-signarama-website-client-logo-original-64531f8f96494.jpg"
+                alt="State Farm"></span>
+            <span><img src="/assets/images/signarama-canada-signarama-website-client-logo-original-64531fa150425.jpg"
+                alt="Nissan"></span>
+            <span><img src="/assets/images/Uber-Logo.png" alt="Uber"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Bar Section (New Position) -->
+    <section class="trust-bar-section">
+      <div class="container">
+        <div class="trust-bar">
+          <div class="trust-item">
+            <span class="trust-icon" style="font-size: 3rem;">🇨🇦</span>
+            <div class="trust-content">
+              <h5>Locally Sourced Material</h5>
+              <p>Tough Enough for Canadian Winters</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon" style="font-size: 3rem;">🤝</span>
+            <div class="trust-content">
+              <h5>Full Service Signage</h5>
+              <p>Design • Production • Installation</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">
+              <!-- Shield with Checkmark -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+              </svg>
+            </span>
+            <div class="trust-content">
+              <h5>Peace of Mind</h5>
+              <p>Craftsmanship Warranty</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="products-section">
+      <div class="container">
+        <h2 class="section-title-center">Most Popular Signage</h2>
+        <div id="product-grid" class="product-grid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="container">
+        <h2 class="section-title-center">What Our Customers Say</h2>
+        <div class="testimonial-wrapper">
+          <button class="nav-btn prev-btn" id="prev-reviews" aria-label="Previous Reviews">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <div class="testimonial-marquee" id="testimonial-container">
+            <div class="testimonial-track">
+              <!-- Original Set -->
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="stars">★★★★★</div>
+                  <a href="https://maps.app.goo.gl/dJTnuMEE9SUEJXj57" target="_blank" class="review-link">Read on
+                    Google</a>
+                </div>
+                <p>"ABSOLUTELY BRILLIANT... new Incredible Business cards delivered on time as promised. High quality
+                  thick card stock..."</p>
+                <div class="user-info">
+                  <strong>Steve Birtles</strong>
+                  <span>3 months ago</span>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="stars">★★★★★</div>
+                  <a href="https://maps.app.goo.gl/35mfkCvLcXiCAf256" target="_blank" class="review-link">Read on
+                    Google</a>
+                </div>
+                <p>"The team did an amazing job installing my window vinyl and store sign. Trudy especially was very
+                  helpful."</p>
+                <div class="user-info">
+                  <strong>Erin Shine</strong>
+                  <span>2 months ago</span>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="stars">★★★★★</div>
+                  <a href="https://maps.app.goo.gl/fWkkoeDCbube8rXP9" target="_blank" class="review-link">Read on
+                    Google</a>
+                </div>
+                <p>"Great quality of signs. They were quickly able to replace my old signs at a great price. No issues."
+                </p>
+                <div class="user-info">
+                  <strong>Martin Hupa</strong>
+                  <span>5 months ago</span>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="stars">★★★★★</div>
+                  <a href="https://maps.app.goo.gl/tRiTVz3HTAzWG8bD6" target="_blank" class="review-link">Read on
+                    Google</a>
+                </div>
+                <p>"Signarama came highly recommended. Abe was very easy to deal with, patient and considerate."</p>
+                <div class="user-info">
+                  <strong>Rhea Uy</strong>
+                  <span>2 years ago</span>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-header">
+                  <div class="stars">★★★★★</div>
+                  <a href="https://maps.app.goo.gl/jFqdpLrH2vS7os3K6" target="_blank" class="review-link">Read on
+                    Google</a>
+                </div>
+                <p>"Abe was wonderful to work with! He was patient with us until we got it right! Our signage is exactly
+                  what we envisioned!"</p>
+                <div class="user-info">
+                  <strong>Chhaya Tailor</strong>
+                  <span>3 months ago</span>
+                </div>
+              </div>
+
+              <!-- See More Link Card -->
+              <div class="testimonial-card see-more-card">
+                <div class="see-more-content">
+                  <div class="google-icon-large">
+                    <svg viewBox="0 0 24 24" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+                      <g transform="matrix(1, 0, 0, 1, 27.009001, -39.238998)">
+                        <path fill="#4285F4"
+                          d="M -3.264 51.509 C -3.264 50.719 -3.334 49.969 -3.454 49.239 L -14.754 49.239 L -14.754 53.749 L -8.284 53.749 C -8.574 55.229 -9.424 56.479 -10.684 57.329 L -10.684 60.329 L -6.824 60.329 C -4.564 58.239 -3.264 55.159 -3.264 51.509 Z" />
+                        <path fill="#34A853"
+                          d="M -14.754 63.239 C -11.514 63.239 -8.804 62.159 -6.824 60.329 L -10.684 57.329 C -11.764 58.049 -13.134 58.489 -14.754 58.489 C -17.884 58.489 -20.534 56.379 -21.484 53.529 L -25.464 53.529 L -25.464 56.619 C -23.494 60.539 -19.444 63.239 -14.754 63.239 Z" />
+                        <path fill="#FBBC05"
+                          d="M -21.484 53.529 C -21.734 52.769 -21.864 51.959 -21.864 51.119 C -21.864 50.279 -21.734 49.469 -21.484 48.709 L -21.484 45.619 L -25.464 45.619 C -26.284 47.249 -26.754 49.129 -26.754 51.119 C -26.754 53.109 -26.284 54.989 -25.464 56.619 L -21.484 53.529 Z" />
+                        <path fill="#EA4335"
+                          d="M -14.754 43.739 C -12.984 43.739 -11.424 44.349 -10.174 45.549 L -6.714 42.089 C -8.804 40.139 -11.514 38.989 -14.754 38.989 C -19.444 38.989 -23.494 41.689 -25.464 45.619 L -21.484 48.709 C -20.534 45.859 -17.884 43.739 -14.754 43.739 Z" />
+                      </g>
+                    </svg>
+                  </div>
+                  <h3>See More Reviews</h3>
+                  <a href="https://maps.app.goo.gl/ttHSQ4GpkwQoXzcH6" target="_blank" class="btn-see-more">View on
+                    Google Maps</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <button class="nav-btn next-btn" id="next-reviews" aria-label="Next Reviews">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Map Section -->
+    <section id="contact-map" class="map-section">
+      <div class="container">
+        <h2 class="section-title-center">Visit Our Showroom</h2>
+        <div class="map-container">
+          <!-- Address specific embed -->
+          <iframe width="100%" height="450" style="border:0" loading="lazy" allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=7250+Keele+Street+Unit+%23+286,+Vaughan,+ON&t=&z=15&ie=UTF8&iwloc=&output=embed">
+          </iframe>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Signarama Vaughan. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

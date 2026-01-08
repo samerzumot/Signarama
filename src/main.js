@@ -1,0 +1,44 @@
+import './style.css'
+
+// Populate Product Grid (Existing Code)
+const products = [
+  { title: "3D Signs & Lettering", image: "/assets/images/Product%20Images/3D%20Lettering.webp" },
+  { title: "Vehicle Graphics", image: "/assets/images/Product%20Images/vehicle.webp" },
+  { title: "Window Graphics", image: "/assets/images/Product%20Images/window.webp" },
+  { title: "Illuminated Signs", image: "/assets/images/Product%20Images/illuminated.webp" },
+  { title: "Channel Letters", image: "/assets/images/Product%20Images/channel.webp" },
+  { title: "Pylon Signs", image: "/assets/images/Product%20Images/pylon.webp" },
+  { title: "Office & Wall Signs", image: "/assets/images/Product%20Images/office.webp" },
+  { title: "Construction Signs", image: "/assets/images/Product%20Images/construction.webp" },
+  { title: "Digital Signs", image: "/assets/images/Product%20Images/digital.webp" }
+];
+
+const grid = document.getElementById('product-grid');
+
+products.forEach(product => {
+  const card = document.createElement('div');
+  card.classList.add('product-card');
+  card.innerHTML = `
+        <img src="${product.image}" alt="${product.title}">
+        <div class="card-body">
+            <h3>${product.title}</h3>
+        </div>
+    `;
+  grid.appendChild(card);
+});
+
+
+// Testimonial Scroll Logic
+const testimonialContainer = document.getElementById('testimonial-container');
+const prevBtn = document.getElementById('prev-reviews');
+const nextBtn = document.getElementById('next-reviews');
+
+if (testimonialContainer && prevBtn && nextBtn) {
+  prevBtn.addEventListener('click', () => {
+    testimonialContainer.scrollBy({ left: -380, behavior: 'smooth' }); // Card width + gap
+  });
+
+  nextBtn.addEventListener('click', () => {
+    testimonialContainer.scrollBy({ left: 380, behavior: 'smooth' });
+  });
+}
