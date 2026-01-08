@@ -688,8 +688,15 @@ footer {
 
 /* Mobile Responsiveness */
 @media (max-width: 900px) {
+  .main-header .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
   .main-header nav ul {
     gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .desktop-only {
@@ -697,12 +704,22 @@ footer {
   }
 
   .btn-call span {
-    display: none;
+    display: inline;
+    /* Keep phone number visible if space allows, or hide if very small */
+  }
+
+  .hero-section {
+    margin-top: 120px;
+    /* Account for taller header */
+    padding: 40px 0;
+    background-color: #0033a0;
+    /* Fallback brand color if video fails */
   }
 
   .hero-content {
     justify-content: center;
     text-align: center;
+    gap: 2rem;
   }
 
   .hero-text {
@@ -711,7 +728,7 @@ footer {
   }
 
   .hero-text h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   .hero-ctas {
@@ -720,11 +737,27 @@ footer {
 
   .trust-bar {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
   .hero-form-card {
     flex: 1 1 100%;
     max-width: 100%;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .btn-call span {
+    display: none;
+  }
+
+  .testimonial-wrapper {
+    padding: 0;
+  }
+
+  .nav-btn {
+    width: 40px;
+    height: 40px;
   }
 }
