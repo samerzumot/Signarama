@@ -282,28 +282,38 @@ body {
   text-align: center;
   color: #2e7d32;
   font-weight: 700;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
   background: #e8f5e9;
-  padding: 5px;
+  padding: 3px;
   border-radius: 4px;
 }
 
 .hero-form-card input,
 .hero-form-card textarea {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 1rem;
+  padding: 8px;
+  /* Compact padding */
+  margin-bottom: 0.5rem;
+  /* Tighter spacing */
   border: 1px solid #ccc;
   border-radius: 4px;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  /* Smaller font */
+}
+
+/* Force textarea to be shorter */
+.hero-form-card textarea {
+  height: 60px;
+  /* Explicit smaller height ~ 2 rows */
+  min-height: 40px;
 }
 
 .file-upload-container {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   border: 1px dashed #ccc;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   border-radius: 4px;
   background: #f9f9f9;
@@ -311,14 +321,14 @@ body {
 
 .file-upload-label {
   display: block;
-  margin-bottom: 5px;
-  font-size: 0.9rem;
+  margin-bottom: 0;
+  font-size: 0.8rem;
   color: #666;
   cursor: pointer;
 }
 
 input[type="file"] {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   width: 100%;
 }
 
@@ -328,8 +338,9 @@ input[type="file"] {
   background: var(--primary-red);
   color: white;
   border: none;
-  padding: 15px;
-  font-size: 1.1rem;
+  padding: 10px;
+  /* Reduced padding */
+  font-size: 1rem;
   font-weight: 700;
   border-radius: 4px;
   cursor: pointer;
