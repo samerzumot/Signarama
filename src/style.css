@@ -119,6 +119,8 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  background-color: #0033a0;
+  /* Prevent grey box when video doesn't autoplay */
 }
 
 .video-overlay {
