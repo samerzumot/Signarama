@@ -1,4 +1,4 @@
-import './style.css'
+
 
 // Populate Product Grid (Existing Code)
 const products = [
