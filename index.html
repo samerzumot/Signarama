@@ -56,26 +56,29 @@
         </div>
 
         <!-- Conversion Optimized Quote Form -->
-        <div id="quote" class="hero-form-card">
-          <h3>Get a Free Quote</h3>
-          <p class="form-guarantee">⚡ Same Day Response Guaranteed</p>
-          <form id="quote-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="tel" placeholder="Phone Number" required>
-            <input type="email" placeholder="Email Address" required>
-            <textarea placeholder="Describe your sign needs..." rows="3"></textarea>
+        <div id="quote" class="hero-form-card collapsed">
+          <div class="form-header" id="quote-toggle">
+            <h3>Get a Free Quote</h3>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="form-content">
+            <p class="form-guarantee">⚡ Same Day Response Guaranteed</p>
+            <form id="quote-form">
+              <input type="text" placeholder="Your Name" required>
+              <input type="tel" placeholder="Phone Number" required>
+              <input type="email" placeholder="Email Address" required>
+              <textarea placeholder="Describe your sign needs..." rows="3"></textarea>
+              <div class="file-upload-container">
+                <label for="artwork-upload" class="file-upload-label">
+                  📎 Upload Picture (Optional)
+                </label>
+                <input type="file" id="artwork-upload" accept="image/*,.pdf,.ai,.eps">
+              </div>
 
-            <div class="file-upload-container">
-              <label for="artwork-upload" class="file-upload-label">
-                📎 Upload Picture (Optional)
-              </label>
-              <input type="file" id="artwork-upload" accept="image/*,.pdf,.ai,.eps">
-            </div>
-
-            <button type="submit" class="btn-submit">Request Quote</button>
-          </form>
+              <button type="submit" class="btn-submit">Request Quote</button>
+            </form>
+          </div>
         </div>
-      </div>
     </section>
 
     <!-- Client Logos Marquee -->

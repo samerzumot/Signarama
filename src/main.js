@@ -42,3 +42,13 @@ if (testimonialContainer && prevBtn && nextBtn) {
     testimonialContainer.scrollBy({ left: 380, behavior: 'smooth' });
   });
 }
+
+// Quote Form Toggle Logic
+const quoteVerifyToggle = document.getElementById('quote-toggle');
+const quoteCard = document.getElementById('quote');
+
+if (quoteVerifyToggle && quoteCard) {
+  quoteVerifyToggle.addEventListener('click', () => {
+    quoteCard.classList.toggle('expanded');
+  });
+}
