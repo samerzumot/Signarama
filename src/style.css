@@ -737,7 +737,18 @@ footer {
 
   .trust-bar {
     flex-direction: column;
-    gap: 2rem;
+    align-items: center;
+    /* Force center alignment of flex children */
+    gap: 3rem;
+    /* Increase gap for better separation */
+  }
+
+  .trust-item {
+    width: 100%;
+    margin: 0 auto;
+    /* Ensure the item itself is centered if it has max-width */
+    padding: 0 1rem;
+    /* Prevent text from touching edges */
   }
 
   .hero-form-card {
