@@ -329,7 +329,9 @@ body {
 
 input[type="file"] {
   font-size: 0.7rem;
-  width: 100%;
+  width: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 
