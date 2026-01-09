@@ -44,3 +44,27 @@ if (testimonialContainer && prevBtn && nextBtn) {
 }
 
 
+// Modal Logic
+const modal = document.getElementById('quote-modal');
+const openBtn = document.getElementById('open-quote-modal');
+const closeBtn = document.getElementById('close-modal');
+
+if (modal && openBtn && closeBtn) {
+  openBtn.addEventListener('click', () => {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  // Close on outside click
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+}
