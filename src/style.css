@@ -70,6 +70,26 @@ body {
 }
 
 /* Conversion Buttons in Header */
+.btn-text-header-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #25D366;
+  /* WhatsApp/Text green */
+  color: white;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  margin-left: 10px;
+  transition: transform 0.2s, background-color 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-text-header-icon:hover {
+  background-color: #128C7E;
+  transform: scale(1.1);
+}
+
 .btn-quote {
   background: var(--primary-red);
   color: var(--text-light) !important;
