@@ -142,12 +142,12 @@ body {
   flex-direction: column;
   /* Stack vertically */
   justify-content: center;
-  align-items: flex-end;
-  /* Align to right */
+  align-items: center;
+  /* Center horizontally */
   gap: 2rem;
-  padding-right: 5%;
-  /* Add some spacing from the edge */
-  text-align: right;
+  padding-top: 15vh;
+  /* Lower the content significantly */
+  text-align: center;
 }
 
 /* Modal Styles - Previously Missed */
@@ -208,6 +208,9 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 2001;
+  background: var(--primary-red);
+  /* Make close button pop */
+  color: white;
 }
 
 .static-form {
