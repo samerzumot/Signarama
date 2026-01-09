@@ -139,10 +139,13 @@ body {
   width: 100%;
   padding: 20px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  /* Stack vertically */
+  justify-content: center;
   align-items: center;
-  gap: 40px;
+  /* Center horizontally */
+  gap: 2rem;
+  text-align: center;
 }
 
 .hero-text {
