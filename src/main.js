@@ -43,12 +43,4 @@ if (testimonialContainer && prevBtn && nextBtn) {
   });
 }
 
-// Quote Form Toggle Logic
-const quoteVerifyToggle = document.getElementById('quote-toggle');
-const quoteCard = document.getElementById('quote');
 
-if (quoteVerifyToggle && quoteCard) {
-  quoteVerifyToggle.addEventListener('click', () => {
-    quoteCard.classList.toggle('expanded');
-  });
-}
