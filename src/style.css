@@ -138,15 +138,29 @@ body {
   max-width: 1200px;
   width: 100%;
   padding: 20px;
-  display: flex;
-  /* Stack vertically */
-  text-align: center;
-  justify-content: center;
+  /* Side-by-Side Layout */
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  /* Center horizontally */
+  text-align: left;
+  /* Reset text align */
   gap: 2rem;
   padding-top: 25vh;
-  /* Lower the content even more */
+  /* Maintain lower position */
+}
+
+/* Mobile Responsive: Stack them on small screens */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding-top: 15vh;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
 }
 
 /* Modal Styles - Previously Missed */
