@@ -268,6 +268,46 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   /* Ensure buttons are centered */
+  align-items: center;
+  /* Vertically center buttons */
+}
+
+.logo-track {
+  display: flex;
+  width: calc(200px * 16);
+  /* Exact width of 16 items */
+  animation: scroll 30s linear infinite;
+}
+
+.logo-track span {
+  width: 200px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-track img {
+  max-width: 100%;
+  max-height: 80px;
+  /* Limit height to keep strip consistent */
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.logo-track img:hover {
+  transform: scale(1.1);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-200px * 8));
+    /* Scroll exactly half (1 set) */
+  }
 }
 
 .btn-large {
