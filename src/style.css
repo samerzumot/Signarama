@@ -264,6 +264,8 @@ body {
 
 .hero-text h1 {
   font-size: 3.5rem;
+  margin-top: 0;
+  /* Ensure no top margin pushes text down */
   margin-bottom: 1rem;
   font-weight: 800;
   line-height: 1.2;
