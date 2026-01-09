@@ -45,14 +45,19 @@ if (testimonialContainer && prevBtn && nextBtn) {
 
 
 // Modal Logic
+// Modal Logic
 const modal = document.getElementById('quote-modal');
-const openBtn = document.getElementById('open-quote-modal');
+// Select both the hero button and the header button (or any other trigger)
+const openBtns = document.querySelectorAll('#open-quote-modal, .btn-quote-trigger-header');
 const closeBtn = document.getElementById('close-modal');
 
-if (modal && openBtn && closeBtn) {
-  openBtn.addEventListener('click', () => {
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+if (modal && closeBtn) {
+  openBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault(); // Prevent anchor jump
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
   });
 
   closeBtn.addEventListener('click', () => {

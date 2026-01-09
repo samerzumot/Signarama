@@ -285,9 +285,9 @@ body {
   flex-wrap: wrap;
   justify-content: flex-end;
   /* Align buttons to the right */
-  align-items: center;
-  flex: 1 1 50%;
   /* Take up the other half */
+  transform: translateY(-75px);
+  /* Lift buttons significantly as requested */
 }
 
 .logo-track {
