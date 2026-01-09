@@ -287,25 +287,44 @@ body {
   transform: translateY(-2px);
 }
 
-.btn-sms {
-  background: #28a745;
-  /* Smoother Green */
-  color: white !important;
-  padding: 1rem 2.5rem;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 700;
-  font-size: 1.1rem;
-  transition: background 0.3s, transform 0.2s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Icon Only Buttons */
+.btn-icon {
   display: inline-flex;
+  justify-content: center;
   align-items: center;
-  gap: 8px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: transform 0.2s, background 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.btn-sms:hover {
-  background: #218838;
+.btn-icon:hover {
   transform: translateY(-2px);
+}
+
+.btn-icon.btn-primary {
+  background: var(--primary-blue);
+}
+
+.btn-icon.btn-primary:hover {
+  background: #002266;
+}
+
+.btn-icon.btn-sms {
+  background: #28a745;
+}
+
+.btn-icon.btn-sms:hover {
+  background: #218838;
+}
+
+/* Override previous btn-sms padding since it is now icon only */
+.btn-sms {
+  padding: 0;
 }
 
 
