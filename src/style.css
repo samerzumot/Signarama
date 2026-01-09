@@ -70,15 +70,22 @@ body {
 }
 
 /* Conversion Buttons in Header */
+/* Ensure list items allow side-by-side content */
+header nav ul li {
+  display: flex;
+  align-items: center;
+}
+
 .btn-text-header-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #25D366;
-  /* WhatsApp/Text green */
+  background-color: var(--primary-red);
+  /* Match brand color */
   color: white;
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  /* Slightly smaller for better proportion */
+  height: 30px;
   border-radius: 50%;
   margin-left: 10px;
   transition: transform 0.2s, background-color 0.2s;
@@ -86,7 +93,8 @@ body {
 }
 
 .btn-text-header-icon:hover {
-  background-color: #128C7E;
+  background-color: #b01f15;
+  /* Darker red on hover */
   transform: scale(1.1);
 }
 
