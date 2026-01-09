@@ -280,10 +280,11 @@ body {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
-  justify-content: center;
-  /* Ensure buttons are centered */
+  justify-content: flex-end;
+  /* Align buttons to the right */
   align-items: center;
-  /* Vertically center buttons */
+  flex: 1 1 50%;
+  /* Take up the other half */
 }
 
 .logo-track {
