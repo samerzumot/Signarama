@@ -217,8 +217,26 @@ body {
 }
 
 .btn-quote-trigger {
-  background-color: var(--primary-red);
+  background: var(--primary-red);
   color: white;
+  padding: 1rem 2.5rem;
+  /* Match btn-large size */
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 4px;
+  /* Match btn-large radius */
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-quote-trigger:hover {
+  background-color: #b01f15;
+  transform: translateY(-2px);
 }
 
 .hero-text {
