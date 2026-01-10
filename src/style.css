@@ -207,11 +207,7 @@ body {
 .modal-content {
   position: relative;
   width: 90%;
-  max-width: 500px;
-  background: #fff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
   animation: slideUp 0.3s ease-out;
 }
 
@@ -229,22 +225,25 @@ body {
 
 .modal-close {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  background: #f0f0f0;
+  top: -15px;
+  right: -15px;
+  background: white;
   color: #333;
   border: none;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   font-size: 1.5rem;
-  line-height: 1;
+  font-weight: bold;
   cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2001;
-  transition: background 0.2s;
+  background: var(--primary-red);
+  /* Make close button pop */
+  color: white;
 }
 
 .modal-close:hover {
@@ -256,18 +255,6 @@ body {
   width: 100%;
 }
 
-/* Ensure inputs have borders */
-.static-form input,
-.static-form textarea {
-  border: 1px solid #ddd;
-  background: #f9f9f9;
-  color: #333;
-}
-
-.static-form label {
-  color: #333;
-  /* Ensure label text is visible */
-}
 
 .form-footer {
   color: #666;
