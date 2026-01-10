@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Signage Design Tool - Signarama Vaughan</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        /* Page Specific Overrides */
+        body {
+            background-color: #f4f6f8;
+            /* Light Grey Background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .wizard-container {
+            background: #fff;
+            width: 90%;
+            max-width: 1100px;
+            height: 85vh;
+            /* Large card container */
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Header / Progress Bar */
+        .wizard-header {
+            padding: 2rem;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+
+        .progress-track {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            position: relative;
+        }
+
+        .step-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            color: #ccc;
+        }
+
+        .step-item.active {
+            color: var(--primary-red);
+            font-weight: 700;
+        }
+
+        .step-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #999;
+        }
+
+        .step-item.active .step-circle {
+            background: var(--primary-red);
+            color: #fff;
+        }
+
+        /* Step Content Area */
+        .wizard-body {
+            flex: 1;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .step-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary-blue);
+        }
+
+        .selection-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .selection-card {
+            border: 2px solid #eee;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .selection-card:hover {
+            border-color: #ccc;
+            transform: translateY(-5px);
+        }
+
+        .selection-card.selected {
+            border-color: var(--primary-red);
+            background-color: #fff5f6;
+            /* Very light red tint */
+            box-shadow: 0 4px 12px rgba(200, 16, 46, 0.2);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .selection-card.selected .card-icon {
+            color: var(--primary-red);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .wizard-footer {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: flex-end;
+            background: #fafafa;
+        }
+
+        .btn-next {
+            padding: 0.75rem 2.5rem;
+            font-size: 1.1rem;
+            background: var(--primary-red);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0.5;
+            pointer-events: none;
+            /* Disabled initially */
+            transition: all 0.3s;
+        }
+
+        .btn-next.enabled {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .btn-next:hover {
+            background: #a60d26;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wizard-container">
+        <!-- Header -->
+        <div class="wizard-header">
+            <div class="progress-track">
+                <div class="step-item active">
+                    <div class="step-circle">1</div>
+                    <span>Choose Path</span>
+                </div>
+                <div class="step-item">
+                    <div class="step-circle">2</div>
+                    <span>Details</span>
+                </div>
+                <div class="step-item">
+                    <div class="step-circle">3</div>
+                    <span>Visualize</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Body -->
+        <div class="wizard-body">
+            <h2 class="step-title">How would you like to start?</h2>
+
+            <div class="selection-grid">
+                <!-- Option 1 -->
+                <div class="selection-card" onclick="selectOption(this)">
+                    <div class="card-icon">💡</div>
+                    <h3 class="card-title">Design from Scratch</h3>
+                    <p class="card-text">Tell us your business name and vibe. Our AI will generate unique concepts for
+                        you.</p>
+                </div>
+
+                <!-- Option 2 -->
+                <div class="selection-card" onclick="selectOption(this)">
+                    <div class="card-icon">📸</div>
+                    <h3 class="card-title">Place on My Building</h3>
+                    <p class="card-text">Upload a photo of your storefront. See detailed signs superimposed
+                        realistically.</p>
+                </div>
+
+                <!-- Option 3 -->
+                <div class="selection-card" onclick="selectOption(this)">
+                    <div class="card-icon">📤</div>
+                    <h3 class="card-title">Use Existing Logo</h3>
+                    <p class="card-text">Have a file? Upload it and watch it transform into professional 3D signage.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="wizard-footer">
+            <button id="next-btn" class="btn-next">Next Step &rarr;</button>
+        </div>
+    </div>
+
+    <script>
+        function selectOption(card) {
+            // Remove selected class from all siblings
+            const allCards = document.querySelectorAll('.selection-card');
+            allCards.forEach(c => c.classList.remove('selected'));
+
+            // Add to clicked
+            card.classList.add('selected');
+
+            // Enable Next Button
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.classList.add('enabled');
+        }
+    </script>
+
+</body>
+
+</html>
