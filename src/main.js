@@ -1,16 +1,19 @@
+```javascript
 
 
 // Populate Product Grid (Existing Code)
 const products = [
-  { title: "3D Signs & Lettering", image: "/assets/images/products/3D%20Lettering.webp" },
-  { title: "Vehicle Graphics", image: "/assets/images/products/vehicle.webp" },
-  { title: "Window Graphics", image: "/assets/images/products/window.webp" },
-  { title: "Illuminated Signs", image: "/assets/images/products/illuminated.webp" },
-  { title: "Channel Letters", image: "/assets/images/products/channel.webp" },
-  { title: "Pylon Signs", image: "/assets/images/products/pylon.webp" },
-  { title: "Office & Wall Signs", image: "/assets/images/products/office.webp" },
-  { title: "Construction Signs", image: "/assets/images/products/construction.webp" },
-  { title: "Digital Signs", image: "/assets/images/products/digital.webp" }
+  { name: '3D Signs & Lettering', image: '/assets/products/3d-signs-lettering.jpg' },
+  { name: 'Channel Letters', image: '/assets/products/channel-letters.jpg' },
+  { name: 'Light Boxes', image: '/assets/products/light-boxes.jpg' },
+  { name: 'Pylon Signs', image: '/assets/products/pylon-signs.jpg' },
+  { name: 'Indoor Signs', image: '/assets/products/indoor-signs.jpg' },
+  { name: 'Vehicle Grahics', image: '/assets/products/vehicle-graphics.jpg' },
+  { name: 'Window Frosting', image: '/assets/products/window-frosting.jpg' },
+  { name: 'Wayfinding', image: '/assets/products/wayfinding.jpg' },
+  { name: 'Safety Signs', image: '/assets/products/safety-signs.jpg' },
+  { name: 'A-Frames', image: '/assets/products/a-frames.jpg' },
+  { name: 'Banners', image: '/assets/products/banners.jpg' }
 ];
 
 const grid = document.getElementById('product-grid');
@@ -19,11 +22,11 @@ products.forEach(product => {
   const card = document.createElement('div');
   card.classList.add('product-card');
   card.innerHTML = `
-        <img src="${product.image}" alt="${product.title}">
-        <div class="card-body">
-            <h3>${product.title}</h3>
-        </div>
-    `;
+  < img src = "${product.image}" alt = "${product.title}" >
+    <div class="card-body">
+      <h3>${product.title}</h3>
+    </div>
+`;
   grid.appendChild(card);
 });
 
