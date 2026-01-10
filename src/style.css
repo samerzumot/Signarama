@@ -166,19 +166,25 @@ header nav ul li {
   max-width: 1200px;
   width: 100%;
   padding: 20px;
-  /* Side-by-Side Layout */
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  /* Left-Aligned Column Layout */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center;
+  align-items: flex-start;
+  /* Left Align */
   text-align: left;
-  /* Reset text align */
+  /* Left Align Text */
   gap: 2rem;
-  padding-top: 25vh;
-  /* Maintain lower position */
+  padding-top: 15vh;
 }
 
-/* Mobile Responsive: Stack them on small screens */
-@media (max-width: 768px) {
+/* Mobile Responsive: Center on small screens */
+@media (max-width: 992px) {
+  .hero-content {
+    align-items: center;
+    text-align: center;
+  }
+
   .hero-content {
     flex-direction: column;
     text-align: center;
@@ -284,24 +290,25 @@ header nav ul li {
 }
 
 .hero-text {
-  flex: 1;
-  min-width: 300px;
+  flex: auto;
+  width: 100%;
   text-align: left;
+  /* Left Align */
   animation: fadeIn 1s ease-out;
 }
 
 .hero-text h1 {
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   margin-top: 0;
   /* Ensure no top margin pushes text down */
   margin-bottom: 1rem;
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.1;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .hero-text p {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   margin-bottom: 0;
   /* Remove margin to center buttons correctly with text */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
@@ -311,11 +318,13 @@ header nav ul li {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
-  justify-content: flex-end;
-  /* Align buttons to the right */
-  /* Take up the other half */
-  transform: translateY(-75px);
-  /* Lift buttons significantly as requested */
+  justify-content: flex-start;
+  /* Left Align Buttons */
+  align-items: center;
+  flex: auto;
+  width: 100%;
+  margin-top: 1rem;
+  /* Small spacing between text and button */
 }
 
 .logo-track {
