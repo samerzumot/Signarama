@@ -22,9 +22,9 @@ products.forEach(product => {
   const card = document.createElement('div');
   card.classList.add('product-card');
   card.innerHTML = `
-  < img src = "${product.image}" alt = "${product.title}" >
+  < img src = "${product.image}" alt = "${product.name}" >
     <div class="card-body">
-      <h3>${product.title}</h3>
+      <h3>${product.name}</h3>
     </div>
 `;
   grid.appendChild(card);
