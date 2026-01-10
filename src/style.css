@@ -287,8 +287,8 @@ body {
   font-size: 2rem;
   margin-top: 0;
   /* Ensure no top margin pushes text down */
-  margin-bottom: 1.5rem;
-  /* Increased gap between Headline and Sub-headline */
+  margin-bottom: 0.5rem;
+  /* Reduced gap */
   font-weight: 800;
   line-height: 1.1;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
@@ -314,8 +314,8 @@ body {
   align-items: center;
   flex: auto;
   width: 100%;
-  margin-top: 2rem;
-  /* Increased gap between Sub-headline and Button */
+  margin-top: 1rem;
+  /* Reduced gap to bring button closer */
 }
 
 .logo-track {
