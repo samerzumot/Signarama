@@ -1,6 +1,3 @@
-```javascript
-
-
 // Populate Product Grid (Existing Code)
 const products = [
   { name: '3D Signs & Lettering', image: '/assets/products/3d-signs-lettering.jpg' },
@@ -22,11 +19,11 @@ products.forEach(product => {
   const card = document.createElement('div');
   card.classList.add('product-card');
   card.innerHTML = `
-  < img src = "${product.image}" alt = "${product.name}" >
+    <img src="${product.image}" alt="${product.name}">
     <div class="card-body">
       <h3>${product.name}</h3>
     </div>
-`;
+  `;
   grid.appendChild(card);
 });
 
