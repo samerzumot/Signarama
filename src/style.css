@@ -268,6 +268,30 @@ body {
   color: #666;
 }
 
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  height: 56px;
+  /* Match typical height of primary button if implicit */
+  box-sizing: border-box;
+}
+
+.btn-outline-white:hover {
+  background: #fff;
+  color: var(--primary-blue);
+  transform: translateY(-2px);
+}
+
 .btn-quote-trigger {
   background: var(--primary-red);
   color: white;
