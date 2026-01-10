@@ -7,11 +7,7 @@ const products = [
   { name: 'Pylon Signs', image: '/assets/images/products/pylon.webp' },
   { name: 'Indoor Signs', image: '/assets/images/products/office.webp' },
   { name: 'Vehicle Graphics', image: '/assets/images/products/vehicle.webp' },
-  { name: 'Window Frosting', image: '/assets/images/products/window.webp' },
-  { name: 'Wayfinding', image: '/assets/images/products/office.webp' }, // Placeholder using Office
-  { name: 'Safety Signs', image: '/assets/images/products/construction.webp' }, // Placeholder using Construction
-  { name: 'A-Frames', image: '/assets/images/products/digital.webp' }, // Placeholder
-  { name: 'Banners', image: '/assets/images/products/window.webp' }, // Placeholder
+  { name: 'Window Graphics', image: '/assets/images/products/window.webp' },
   { name: 'Construction Signs', image: '/assets/images/products/construction.webp' },
   { name: 'Digital Signs', image: '/assets/images/products/digital.webp' }
 ];
