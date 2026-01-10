@@ -69,33 +69,19 @@ body {
   color: var(--primary-red);
 }
 
-/* Conversion Buttons in Header */
-/* Ensure list items allow side-by-side content */
-header nav ul li {
-  display: flex;
-  align-items: center;
+/* Header Contact Link */
+.btn-call {
+  text-decoration: none;
+  font-weight: 800;
+  /* Bold */
+  color: #0033a0 !important;
+  /* Dark Blue */
+  font-size: 1.1rem;
+  transition: color 0.3s;
 }
 
-.btn-text-header-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--primary-red);
-  /* Match brand color */
-  color: white;
-  width: 30px;
-  /* Slightly smaller for better proportion */
-  height: 30px;
-  border-radius: 50%;
-  margin-left: 10px;
-  transition: transform 0.2s, background-color 0.2s;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.btn-text-header-icon:hover {
-  background-color: #b01f15;
-  /* Darker red on hover */
-  transform: scale(1.1);
+.btn-call:hover {
+  color: var(--primary-red) !important;
 }
 
 .btn-quote {
