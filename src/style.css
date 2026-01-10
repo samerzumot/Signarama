@@ -250,6 +250,14 @@ body {
   background: #e0e0e0;
 }
 
+.form-guarantee {
+  text-align: center;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
 .static-form {
   margin: 0;
   width: 100%;
