@@ -1,16 +1,19 @@
 // Populate Product Grid (Existing Code)
+// Populate Product Grid with Verified Assets
 const products = [
-  { name: '3D Signs & Lettering', image: '/assets/products/3d-signs-lettering.jpg' },
-  { name: 'Channel Letters', image: '/assets/products/channel-letters.jpg' },
-  { name: 'Light Boxes', image: '/assets/products/light-boxes.jpg' },
-  { name: 'Pylon Signs', image: '/assets/products/pylon-signs.jpg' },
-  { name: 'Indoor Signs', image: '/assets/products/indoor-signs.jpg' },
-  { name: 'Vehicle Grahics', image: '/assets/products/vehicle-graphics.jpg' },
-  { name: 'Window Frosting', image: '/assets/products/window-frosting.jpg' },
-  { name: 'Wayfinding', image: '/assets/products/wayfinding.jpg' },
-  { name: 'Safety Signs', image: '/assets/products/safety-signs.jpg' },
-  { name: 'A-Frames', image: '/assets/products/a-frames.jpg' },
-  { name: 'Banners', image: '/assets/products/banners.jpg' }
+  { name: '3D Signs & Lettering', image: '/assets/images/products/3D%20Lettering.webp' },
+  { name: 'Channel Letters', image: '/assets/images/products/channel.webp' },
+  { name: 'Light Boxes', image: '/assets/images/products/illuminated.webp' },
+  { name: 'Pylon Signs', image: '/assets/images/products/pylon.webp' },
+  { name: 'Indoor Signs', image: '/assets/images/products/office.webp' },
+  { name: 'Vehicle Graphics', image: '/assets/images/products/vehicle.webp' },
+  { name: 'Window Frosting', image: '/assets/images/products/window.webp' },
+  { name: 'Wayfinding', image: '/assets/images/products/office.webp' }, // Placeholder using Office
+  { name: 'Safety Signs', image: '/assets/images/products/construction.webp' }, // Placeholder using Construction
+  { name: 'A-Frames', image: '/assets/images/products/digital.webp' }, // Placeholder
+  { name: 'Banners', image: '/assets/images/products/window.webp' }, // Placeholder
+  { name: 'Construction Signs', image: '/assets/images/products/construction.webp' },
+  { name: 'Digital Signs', image: '/assets/images/products/digital.webp' }
 ];
 
 const grid = document.getElementById('product-grid');
