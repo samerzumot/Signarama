@@ -7,7 +7,8 @@ export default {
         rollupOptions: {
             input: {
                 main: 'index.html',
-                ai_tool: 'ai-tool.html' // Add new page entry
+                ai_tool: 'ai-tool.html',
+                product: 'product.html'
             }
         }
     }

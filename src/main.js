@@ -7,7 +7,7 @@ if (grid) {
     const card = document.createElement('div');
     card.classList.add('product-card');
     card.innerHTML = `
-      <a href="/product.html?item=${product.slug}" style="text-decoration: none; color: inherit; display: block;">
+      <a href="./product.html?item=${product.slug}" style="text-decoration: none; color: inherit; display: block;">
         <img src="${product.image}" alt="${product.title}">
         <div class="card-body">
           <h3>${product.title}</h3>
