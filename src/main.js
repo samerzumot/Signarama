@@ -1,16 +1,4 @@
-// Populate Product Grid (Existing Code)
-// Populate Product Grid with Verified Assets
-const products = [
-  { name: '3D Signs & Lettering', image: '/assets/images/products/3D%20Lettering.webp' },
-  { name: 'Channel Letters', image: '/assets/images/products/channel.webp' },
-  { name: 'Light Boxes', image: '/assets/images/products/illuminated.webp' },
-  { name: 'Pylon Signs', image: '/assets/images/products/pylon.webp' },
-  { name: 'Indoor Signs', image: '/assets/images/products/office.webp' },
-  { name: 'Vehicle Graphics', image: '/assets/images/products/vehicle.webp' },
-  { name: 'Window Graphics', image: '/assets/images/products/window.webp' },
-  { name: 'Construction Signs', image: '/assets/images/products/construction.webp' },
-  { name: 'Digital Signs', image: '/assets/images/products/digital.webp' }
-];
+import { products } from './data.js';
 
 const grid = document.getElementById('product-grid');
 
@@ -19,10 +7,13 @@ if (grid) {
     const card = document.createElement('div');
     card.classList.add('product-card');
     card.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
-      <div class="card-body">
-        <h3>${product.name}</h3>
-      </div>
+      <a href="/product.html?item=${product.slug}" style="text-decoration: none; color: inherit; display: block;">
+        <img src="${product.image}" alt="${product.title}">
+        <div class="card-body">
+          <h3>${product.title}</h3>
+          <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">${product.description}</p>
+        </div>
+      </a>
     `;
     grid.appendChild(card);
   });
