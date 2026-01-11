@@ -14,17 +14,19 @@ const products = [
 
 const grid = document.getElementById('product-grid');
 
-products.forEach(product => {
-  const card = document.createElement('div');
-  card.classList.add('product-card');
-  card.innerHTML = `
-    <img src="${product.image}" alt="${product.name}">
-    <div class="card-body">
-      <h3>${product.name}</h3>
-    </div>
-  `;
-  grid.appendChild(card);
-});
+if (grid) {
+  products.forEach(product => {
+    const card = document.createElement('div');
+    card.classList.add('product-card');
+    card.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <div class="card-body">
+        <h3>${product.name}</h3>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
 
 
 // Testimonial Scroll Logic
@@ -53,7 +55,21 @@ const closeBtn = document.getElementById('close-modal');
 if (modal && closeBtn) {
   openBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
-      e.preventDefault(); // Prevent anchor jump
+      e.preventDefault();
+
+      // If triggered from AI tool results, pre-fill context
+      const bizName = document.getElementById('biz-name')?.value;
+      const bizIndustry = document.getElementById('biz-industry')?.value;
+      const bizStyle = document.getElementById('biz-style')?.value;
+
+      const form = document.getElementById('quote-form');
+      if (form && bizName) {
+        const messageArea = form.querySelector('textarea[name="message"]');
+        if (messageArea) {
+          messageArea.value = `AI Tool Context:\nBusiness: ${bizName}\nIndustry: ${bizIndustry}\nStyle: ${bizStyle}\n\nI would like a formal quote for this AI generated concept.`;
+        }
+      }
+
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
     });

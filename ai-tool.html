@@ -10,13 +10,15 @@
         /* Page Specific Overrides */
         body {
             background-color: #f4f6f8;
-            /* Light Grey Background */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             margin: 0;
             font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            padding-top: 100px;
+            /* Space for the fixed header */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
         }
 
         .wizard-container {
@@ -24,12 +26,12 @@
             width: 90%;
             max-width: 1100px;
             height: 85vh;
-            /* Large card container */
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            position: relative;
         }
 
         /* Header / Progress Bar */
@@ -53,11 +55,16 @@
             position: relative;
             z-index: 2;
             color: #ccc;
+            transition: all 0.3s;
         }
 
         .step-item.active {
             color: var(--primary-red);
             font-weight: 700;
+        }
+
+        .step-item.completed {
+            color: var(--primary-blue);
         }
 
         .step-circle {
@@ -71,10 +78,16 @@
             margin-bottom: 8px;
             font-weight: 600;
             color: #999;
+            transition: all 0.3s;
         }
 
         .step-item.active .step-circle {
             background: var(--primary-red);
+            color: #fff;
+        }
+
+        .step-item.completed .step-circle {
+            background: var(--primary-blue);
             color: #fff;
         }
 
@@ -84,177 +97,669 @@
             padding: 3rem;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .step-view {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .step-view.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .step-title {
             font-size: 2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 0.5rem;
             color: var(--primary-blue);
+            text-align: center;
         }
 
+        .step-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        /* Step 1: Selection Grid */
         .selection-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             width: 100%;
+            max-width: 900px;
         }
 
         .selection-card {
             border: 2px solid #eee;
-            border-radius: 8px;
-            padding: 2rem;
+            border-radius: 12px;
+            padding: 2.5rem 1.5rem;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            background: #fff;
         }
 
         .selection-card:hover {
-            border-color: #ccc;
-            transform: translateY(-5px);
+            border-color: var(--primary-red);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
         }
 
         .selection-card.selected {
             border-color: var(--primary-red);
-            background-color: #fff5f6;
-            /* Very light red tint */
-            box-shadow: 0 4px 12px rgba(200, 16, 46, 0.2);
+            background-color: #fff8f9;
+            box-shadow: 0 4px 20px rgba(200, 16, 46, 0.15);
         }
 
         .card-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--primary-blue);
-        }
-
-        .selection-card.selected .card-icon {
-            color: var(--primary-red);
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .card-title {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #333;
+            margin-bottom: 1rem;
+            color: #222;
         }
 
         .card-text {
             font-size: 0.95rem;
             color: #666;
-            line-height: 1.5;
+            line-height: 1.6;
+        }
+
+        /* Step 2: Form Styles */
+        .details-form {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary-red);
+            outline: none;
+        }
+
+        .file-dropzone {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: #fafafa;
+        }
+
+        .file-dropzone:hover {
+            border-color: var(--primary-red);
+            background: #fff5f6;
+        }
+
+        .file-dropzone i {
+            font-size: 2rem;
+            color: #999;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Step 3: Visualization */
+        .viz-container {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .generating-overlay {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary-red);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .result-view {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .mockup-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            background: #eee;
+            aspect-ratio: 16/9;
+            object-fit: cover;
         }
 
         /* Footer */
         .wizard-footer {
-            padding: 1.5rem 2rem;
+            padding: 1.5rem 3rem;
             border-top: 1px solid #eee;
             display: flex;
-            justify-content: flex-end;
-            background: #fafafa;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+        }
+
+        .btn-back {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            visibility: hidden;
+            /* Hidden on step 1 */
+        }
+
+        .btn-back:hover {
+            color: var(--primary-blue);
         }
 
         .btn-next {
-            padding: 0.75rem 2.5rem;
+            padding: 0.8rem 2.5rem;
             font-size: 1.1rem;
+            font-weight: 600;
             background: var(--primary-red);
             color: #fff;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
-            opacity: 0.5;
-            pointer-events: none;
-            /* Disabled initially */
             transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
-        .btn-next.enabled {
-            opacity: 1;
-            pointer-events: auto;
+        .btn-next:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
         }
 
-        .btn-next:hover {
+        .btn-next:hover:not(:disabled) {
             background: #a60d26;
+            transform: translateY(-2px);
+        }
+
+        /* Progress Bar Connector */
+        .progress-track::before {
+            content: '';
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: #eee;
+            z-index: 1;
         }
     </style>
 </head>
 
 <body>
+    <header class="main-header">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="/assets/images/signarama-new-logo.png.webp" alt="Signarama Vaughan" style="height: 70px;">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/#products">Products</a></li>
+                    <li class="desktop-only"><a href="/#contact-map">About Us</a></li>
+                    <li><a href="/ai-tool.html" class="btn-mockup-header">Try Free AI Mockup</a></li>
+                    <li class="header-contact-info">
+                        <a href="tel:905-597-8635" class="btn-call">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg" style="margin-right: 5px;">
+                                <path
+                                    d="M6.62 10.79c1.44 2.82 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                            </svg>
+                            905-597-8635
+                        </a>
+                        <div class="quote-wrapper">
+                            <span class="brand-subname">Signarama Vaughan</span>
+                            <a href="#" class="btn-quote btn-quote-trigger-header">GET A QUOTE</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <div class="wizard-container">
         <!-- Header -->
         <div class="wizard-header">
             <div class="progress-track">
-                <div class="step-item active">
+                <div class="step-item active" id="step-dot-1">
                     <div class="step-circle">1</div>
-                    <span>Choose Path</span>
+                    <span>Path</span>
                 </div>
-                <div class="step-item">
+                <div class="step-item" id="step-dot-2">
                     <div class="step-circle">2</div>
                     <span>Details</span>
                 </div>
-                <div class="step-item">
+                <div class="step-item" id="step-dot-3">
                     <div class="step-circle">3</div>
-                    <span>Visualize</span>
+                    <span>Preview</span>
                 </div>
             </div>
         </div>
 
         <!-- Body -->
         <div class="wizard-body">
-            <h2 class="step-title">How would you like to start?</h2>
 
-            <div class="selection-grid">
-                <!-- Option 1 -->
-                <div class="selection-card" onclick="selectOption(this)">
-                    <div class="card-icon">💡</div>
-                    <h3 class="card-title">Design from Scratch</h3>
-                    <p class="card-text">Tell us your business name and vibe. Our AI will generate unique concepts for
-                        you.</p>
-                </div>
+            <!-- Step 1: Selection -->
+            <div class="step-view active" id="step-1">
+                <h2 class="step-title">Start Your AI Design</h2>
+                <p class="step-subtitle">Select how you'd like our AI to help you today</p>
 
-                <!-- Option 2 -->
-                <div class="selection-card" onclick="selectOption(this)">
-                    <div class="card-icon">📸</div>
-                    <h3 class="card-title">Place on My Building</h3>
-                    <p class="card-text">Upload a photo of your storefront. See detailed signs superimposed
-                        realistically.</p>
-                </div>
+                <div class="selection-grid">
+                    <div class="selection-card" onclick="selectOption('scratch', this)">
+                        <div class="card-icon">💡</div>
+                        <h3 class="card-title">From Scratch</h3>
+                        <p class="card-text">Our AI generates unique concepts based on your business name and vibe.</p>
+                    </div>
 
-                <!-- Option 3 -->
-                <div class="selection-card" onclick="selectOption(this)">
-                    <div class="card-icon">📤</div>
-                    <h3 class="card-title">Use Existing Logo</h3>
-                    <p class="card-text">Have a file? Upload it and watch it transform into professional 3D signage.</p>
+                    <div class="selection-card" onclick="selectOption('storefront', this)">
+                        <div class="card-icon">📸</div>
+                        <h3 class="card-title">On My Building</h3>
+                        <p class="card-text">Upload a photo of your storefront and see signs superimposed realistically.
+                        </p>
+                    </div>
+
+                    <div class="selection-card" onclick="selectOption('logo', this)">
+                        <div class="card-icon">📤</div>
+                        <h3 class="card-title">Existing Logo</h3>
+                        <p class="card-text">Upload your logo and let AI transform it into premium 3D signage.</p>
+                    </div>
                 </div>
             </div>
+
+            <!-- Step 2: Details -->
+            <div class="step-view" id="step-2">
+                <h2 class="step-title">Refine the Details</h2>
+                <p class="step-subtitle">Tell us a bit more to get the best results</p>
+
+                <form class="details-form" id="ai-details-form">
+                    <div class="form-group">
+                        <label>Business Name</label>
+                        <input type="text" id="biz-name" placeholder="e.g. Vaughan Coffee House" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Industry</label>
+                        <select id="biz-industry">
+                            <option value="retail">Retail</option>
+                            <option value="restaurant">Restaurant / Cafe</option>
+                            <option value="service">Professional Services</option>
+                            <option value="industrial">Industrial / Manufacturing</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Dynamic Upload Section -->
+                    <div class="form-group" id="upload-container" style="display: none;">
+                        <label id="upload-label">Upload Image</label>
+                        <div class="file-dropzone" onclick="document.getElementById('ai-file').click()">
+                            <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">📁</span>
+                            <span id="file-name-display">Click to upload or drag and drop</span>
+                            <input type="file" id="ai-file" style="display: none;" onchange="handleFile(this)">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Style / Mood</label>
+                        <textarea id="biz-style" rows="2" placeholder="e.g. Modern, Minimalist, High-end..."></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 3: Visualize -->
+            <div class="step-view" id="step-3">
+                <div class="viz-container">
+                    <div class="generating-overlay" id="loading-view">
+                        <div class="spinner"></div>
+                        <h2 class="step-title">AI is Crafting Your Sign...</h2>
+                        <p>Our neural engine is analyzing your brand and building concepts.</p>
+                    </div>
+
+                    <div class="result-view" id="result-view">
+                        <h2 class="step-title">Your AI Mockup is Ready!</h2>
+                        <p class="step-subtitle">Based on your brand "Vaughan Coffee House"</p>
+
+                        <img src="/assets/images/ai-mockup.png" alt="Generated Mockup" class="mockup-image">
+
+                        <div style="display: flex; gap: 1rem; margin-top: 2rem; justify-content: center;">
+                            <button class="btn-next" style="background-color: var(--primary-blue);"
+                                onclick="window.location.reload()">
+                                🔄 Start Over
+                            </button>
+                            <button class="btn-next btn-quote-trigger-header">
+                                📩 Request Detailed Quote
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- Footer -->
         <div class="wizard-footer">
-            <button id="next-btn" class="btn-next">Next Step &rarr;</button>
+            <button class="btn-back" id="back-btn" onclick="goBack()">
+                &larr; Back
+            </button>
+            <button id="next-btn" class="btn-next" disabled onclick="goNext()">
+                Next Step &rarr;
+            </button>
         </div>
     </div>
 
     <script>
-        function selectOption(card) {
-            // Remove selected class from all siblings
+        let currentStep = 1;
+        let selectedPath = '';
+
+        // Nano Banana Pro (Gemini 3 Pro Image) Integration
+        class AIService {
+            constructor() {
+                this.apiKey = ''; // User to provide or environment-based
+                this.apiEndpoint = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent';
+            }
+
+            async generateMockup(data) {
+                const prompt = this.constructPrompt(data);
+                console.log("Generating with prompt:", prompt);
+
+                // Simulation for Demo (if no API key)
+                if (!this.apiKey) {
+                    return this.getMockResponse(data);
+                }
+
+                try {
+                    const response = await fetch(`${this.apiEndpoint}?key=${this.apiKey}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            contents: [{ parts: [{ text: prompt }] }]
+                        })
+                    });
+                    const result = await response.json();
+                    return result.candidates[0].content.parts[0].text; // Expecting an image-related response/URL in real scenario
+                } catch (error) {
+                    console.error("AI Generation Error:", error);
+                    return this.getMockResponse(data);
+                }
+            }
+
+            constructPrompt(data) {
+                const { bizName, industry, style, path } = data;
+                let promptBase = `A professional 3D physical signage design for a business called "${bizName}" in the ${industry} industry. `;
+
+                if (path === 'scratch') {
+                    promptBase += `Design a unique external or internal architectural sign from scratch. Style: ${style || 'Professional, modern'}. `;
+                } else if (path === 'storefront') {
+                    promptBase += `Show the customized physical sign realistically mounted on their modern building facade. Style: ${style || 'High-end'}. `;
+                } else if (path === 'logo') {
+                    promptBase += `Digitally transform the provided logo into a physical, premium 3D illuminated sign with depth, metallic or acrylic textures. `;
+                }
+
+                promptBase += "The final image MUST be a signage design mockup, photorealistic, 8k, architectural visualization, professional studio lighting.";
+                return promptBase;
+            }
+
+            // High-fidelity fallback for Demo (Now using dynamic local signage assets)
+            async getMockResponse(data) {
+                const industryMap = {
+                    retail: '/assets/images/retail-mockup.png',
+                    restaurant: '/assets/images/ai-mockup.png',
+                    service: '/assets/images/service-mockup.png',
+                    industrial: '/assets/images/industrial-mockup.png',
+                    other: '/assets/images/ai-mockup.png'
+                };
+
+                // Specific "Coffee" catch-all
+                if (data.bizName.toLowerCase().includes('coffee')) {
+                    return '/assets/images/ai-mockup.png';
+                }
+
+                return industryMap[data.industry] || industryMap.other;
+            }
+        }
+
+        const aiService = new AIService();
+
+        function selectOption(path, card) {
+            selectedPath = path;
             const allCards = document.querySelectorAll('.selection-card');
             allCards.forEach(c => c.classList.remove('selected'));
-
-            // Add to clicked
             card.classList.add('selected');
 
-            // Enable Next Button
             const nextBtn = document.getElementById('next-btn');
-            nextBtn.classList.add('enabled');
+            nextBtn.disabled = false;
+        }
+
+        function goNext() {
+            if (currentStep === 1) {
+                // Prepare Step 2 based on path
+                const uploadContainer = document.getElementById('upload-container');
+                const uploadLabel = document.getElementById('upload-label');
+
+                if (selectedPath === 'storefront') {
+                    uploadContainer.style.display = 'flex';
+                    uploadLabel.innerText = 'Upload Storefront Photo';
+                } else if (selectedPath === 'logo') {
+                    uploadContainer.style.display = 'flex';
+                    uploadLabel.innerText = 'Upload Your Logo';
+                } else {
+                    uploadContainer.style.display = 'none';
+                }
+
+                updateStep(2);
+            } else if (currentStep === 2) {
+                updateStep(3);
+                startGeneration();
+            }
+        }
+
+        function goBack() {
+            if (currentStep > 1) {
+                updateStep(currentStep - 1);
+            }
+        }
+
+        function updateStep(step) {
+            // Hide all views
+            document.querySelectorAll('.step-view').forEach(view => view.classList.remove('active'));
+            // Show target view
+            document.getElementById(`step-${step}`).classList.add('active');
+
+            // Update Breadcrumbs
+            document.querySelectorAll('.step-item').forEach((dot, idx) => {
+                dot.classList.remove('active', 'completed');
+                if (idx + 1 < step) dot.classList.add('completed');
+                if (idx + 1 === step) dot.classList.add('active');
+            });
+
+            // Update Navigation
+            const backBtn = document.getElementById('back-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            backBtn.style.visibility = (step === 1) ? 'hidden' : 'visible';
+
+            if (step === 3) {
+                nextBtn.style.display = 'none';
+                backBtn.style.display = 'none';
+            } else {
+                nextBtn.style.display = 'flex';
+                backBtn.style.display = 'flex';
+                nextBtn.innerHTML = (step === 2) ? 'Visualize Concept &rarr;' : 'Next Step &rarr;';
+            }
+
+            currentStep = step;
+        }
+
+        async function startGeneration() {
+            const loadingView = document.getElementById('loading-view');
+            const resultView = document.getElementById('result-view');
+
+            const formData = {
+                bizName: document.getElementById('biz-name').value || 'Vaughan Coffee House',
+                industry: document.getElementById('biz-industry').value,
+                style: document.getElementById('biz-style').value,
+                path: selectedPath
+            };
+
+            // Update UI with brand name
+            const resultSubtitle = resultView.querySelector('.step-subtitle');
+            if (resultSubtitle) {
+                resultSubtitle.innerText = `Based on your brand "${formData.bizName}"`;
+            }
+
+            // Call Nano Banana Pro API
+            const imageUrl = await aiService.generateMockup(formData);
+
+            // Update Mockup Image
+            const mockupImg = resultView.querySelector('.mockup-image');
+            if (mockupImg) {
+                mockupImg.src = imageUrl;
+            }
+
+            setTimeout(() => {
+                loadingView.style.display = 'none';
+                resultView.style.display = 'flex';
+            }, 3000);
+        }
+
+        function handleFile(input) {
+            if (input.files && input.files[0]) {
+                document.getElementById('file-name-display').innerText = input.files[0].name;
+                document.getElementById('file-name-display').style.color = 'var(--primary-blue)';
+                document.getElementById('file-name-display').style.fontWeight = '700';
+            }
         }
     </script>
 
+    <!-- Quote Modal -->
+    <div id="quote-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" id="close-modal">&times;</button>
+            <div class="hero-form-card static-form">
+                <p class="form-guarantee">⚡ Same-day Response</p>
+
+                <div id="success-message" style="display: none; text-align: center; padding: 40px 20px;">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="#0033a0" style="margin-bottom: 20px;">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                    </svg>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 15px; color: #0033a0;">Thank You!</h3>
+                    <p style="font-size: 1.1rem; color: #555; margin-bottom: 20px;">We have received your quote request
+                        and
+                        will get back to you within <strong>24 hours</strong>.</p>
+                    <button class="btn-primary" id="close-success-btn" style="width: 100%;">Close</button>
+                </div>
+
+                <form id="quote-form" action="https://formsubmit.co/info@signarama-vaughan.com" method="POST"
+                    enctype="multipart/form-data">
+                    <input type="hidden" name="_subject" value="New Quote Request - Signarama Vaughan">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="text" name="_honey" style="display:none">
+
+                    <div class="form-group">
+                        <input type="text" placeholder="Name" required name="name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required name="email">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone" required name="phone">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Tell us about your project..." rows="3" name="message"></textarea>
+                    </div>
+                    <div class="form-group file-upload">
+                        <label for="file">Upload Design (Optional)</label>
+                        <input type="file" id="file" name="attachment">
+                    </div>
+                    <button type="submit" class="btn-submit">Get Your Free Quote</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>
