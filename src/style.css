@@ -241,6 +241,7 @@ body {
   width: 90%;
   max-width: 400px;
   animation: slideUp 0.3s ease-out;
+  overflow: visible !important;
 }
 
 @keyframes slideUp {
@@ -257,8 +258,8 @@ body {
 
 .modal-close {
   position: absolute;
-  top: -15px;
-  right: -15px;
+  top: 10px;
+  right: 10px;
   background: white;
   color: #333;
   border: none;
