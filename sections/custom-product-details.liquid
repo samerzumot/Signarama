@@ -235,8 +235,27 @@
           thumbStrip.appendChild(thumb);
       });
   } else {
-      // If no product found, redirect to home
-      window.location.href = '/';
+      // Fallback for Editor / Direct Access without param
+      // Don't redirect, just show the first product as a demo
+      const fallbackProduct = products[0];
+      if (fallbackProduct) {
+          const getImgSrc = (src) => src.startsWith('http') ? src : (window.assetBaseUrl + src);
+          
+          document.title = `${fallbackProduct.title} - Signarama Vaughan`;
+          document.getElementById('breadcrumb-current').innerText = fallbackProduct.title;
+          document.getElementById('product-title').innerText = fallbackProduct.title;
+          document.getElementById('product-description').innerText = fallbackProduct.longDescription;
+          document.getElementById('main-product-image').src = getImgSrc(fallbackProduct.image);
+          
+          // Thumbnails
+          const thumbStrip = document.getElementById('thumbnail-strip');
+          fallbackProduct.gallery.forEach((img, idx) => {
+              const thumb = document.createElement('img');
+              thumb.src = getImgSrc(img);
+              thumb.className = idx === 0 ? 'thumbnail active' : 'thumbnail';
+              thumbStrip.appendChild(thumb);
+          });
+      }
   }
 </script>
 
