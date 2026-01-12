@@ -8,7 +8,7 @@ if (grid) {
     card.classList.add('product-card');
     const imageSrc = product.image.startsWith('http') ? product.image : (window.assetBaseUrl + product.image);
     card.innerHTML = `
-      <a href="/products/${product.slug}" style="text-decoration: none; color: inherit; display: block;">
+      <a href="/pages/product-details?item=${product.slug}" style="text-decoration: none; color: inherit; display: block;">
         <img src="${imageSrc}" alt="${product.title}">
         <div class="card-body">
           <h3>${product.title}</h3>

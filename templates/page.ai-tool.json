@@ -1,0 +1,11 @@
+{
+    "sections": {
+        "main": {
+            "type": "ai-tool",
+            "settings": {}
+        }
+    },
+    "order": [
+        "main"
+    ]
+}
