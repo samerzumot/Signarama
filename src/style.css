@@ -293,58 +293,70 @@ body {
 .static-form {
   margin: 0;
   width: 100%;
+  padding: 2.5rem !important;
+  background: #fff;
 }
 
-
-.form-footer {
-  color: #666;
+.static-form .form-group {
+  margin-bottom: 1.2rem;
 }
 
-.btn-outline-white {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-decoration: none;
-  background: transparent;
-  color: #fff;
-  border: 2px solid #fff;
-  border-radius: 4px;
+.static-form input,
+.static-form textarea {
+  width: 100%;
+  padding: 12px 18px;
+  border: 1.5px solid #eee;
+  border-radius: 10px;
+  font-size: 1rem;
   transition: all 0.3s ease;
-  height: 56px;
-  /* Match typical height of primary button if implicit */
+  background: #fafafa;
+  color: #333;
   box-sizing: border-box;
 }
 
-.btn-outline-white:hover {
+.static-form input:focus,
+.static-form textarea:focus {
+  border-color: var(--primary-red);
   background: #fff;
-  color: var(--primary-blue);
-  transform: translateY(-2px);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(200, 16, 46, 0.05);
 }
 
-.btn-quote-trigger {
+.static-form .file-upload {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px dashed #ddd;
+  margin-top: 1rem;
+}
+
+.static-form .file-upload label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.static-form .btn-submit {
+  width: 100%;
+  padding: 16px;
   background: var(--primary-red);
-  color: white;
-  padding: 1rem 2.5rem;
-  /* Match btn-large size */
+  color: #fff;
   border: none;
+  border-radius: 50px;
   font-size: 1.1rem;
   font-weight: 700;
-  border-radius: 4px;
-  /* Match btn-large radius */
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  transition: all 0.3s ease;
+  margin-top: 1.5rem;
+  box-shadow: 0 6px 15px rgba(200, 16, 46, 0.2);
 }
 
-.btn-quote-trigger:hover {
-  background-color: #b01f15;
+.static-form .btn-submit:hover {
+  background: #a60d26;
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(200, 16, 46, 0.3);
 }
 
 .hero-text {
@@ -1080,6 +1092,7 @@ footer {
     height: 40px;
   }
 }
+
 /* Success Modal Refinements */
 .success-content {
   text-align: center;
@@ -1088,8 +1101,15 @@ footer {
 }
 
 @keyframes modalPop {
-  0% { transform: scale(0.9); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .success-badge {
@@ -1140,16 +1160,27 @@ footer {
 }
 
 @keyframes stroke {
-  100% { stroke-dashoffset: 0; }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes scale {
-  0%, 100% { transform: none; }
-  50% { transform: scale3d(1.1, 1.1, 1); }
+
+  0%,
+  100% {
+    transform: none;
+  }
+
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
 }
 
 @keyframes fill {
-  100% { box-shadow: inset 0px 0px 0px 40px rgba(40, 167, 69, 0.1); }
+  100% {
+    box-shadow: inset 0px 0px 0px 40px rgba(40, 167, 69, 0.1);
+  }
 }
 
 .success-title {
