@@ -8,13 +8,25 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "main": {
-            "type": "custom-product-details",
-            "settings": {}
+  "sections": {
+    "main": {
+      "type": "custom-product-details",
+      "blocks": {
+        "gallery_image_PUExLh": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/20191011162220_39021.jpg",
+            "product_slug": "pylon-signs"
+          }
         }
-    },
-    "order": [
-        "main"
-    ]
+      },
+      "block_order": [
+        "gallery_image_PUExLh"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
 }
