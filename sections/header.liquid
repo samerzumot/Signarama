@@ -1,6 +1,31 @@
-<header>
-  <h1>{{ shop.name }}</h1>
-</header>
+<header class="main-header">
+    <div class="container">
+      <a href="/" class="logo">
+        <img src="{{ 'signarama-new-logo.png.webp' | asset_url }}" alt="{{ shop.name }}" style="height: 70px;">
+      </a>
+      <nav>
+        <ul>
+          <li><a href="/#products">Products</a></li>
+          <li class="desktop-only"><a href="/#contact-map">About Us</a></li>
+          <li><a href="/pages/ai-tool" class="btn-mockup-header">Try Free AI Mockup</a></li>
+          <li class="header-contact-info">
+            <a href="tel:905-597-8635" class="btn-call">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                style="margin-right: 5px;">
+                <path
+                  d="M6.62 10.79c1.44 2.82 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+              </svg>
+              905-597-8635
+            </a>
+            <div class="quote-wrapper">
+              <span class="brand-subname">Signarama Vaughan</span>
+              <a href="#" class="btn-quote btn-quote-trigger-header">GET A QUOTE</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
 {% schema %}
 {

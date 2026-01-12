@@ -5,14 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <title>{{ page_title }}</title>
 
   {{ content_for_header }}
 
-  {% comment %} 
-    In a real integration, you would include the Vite built CSS here.
-    Example: {{ 'style.css' | asset_url | stylesheet_tag }}
-  {% endcomment %}
+  {{ 'style.css' | asset_url | stylesheet_tag }}
+  <script>
+    // Hack to get the base asset URL
+    window.assetBaseUrl = "{{ 'main.js' | asset_url }}".split('main.js')[0];
+  </script>
+  <script type="module" src="{{ 'main.js' | asset_url }}"></script>
 </head>
 <body>
   {% section 'header' %}
