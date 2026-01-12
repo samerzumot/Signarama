@@ -17,7 +17,7 @@
     // Hack to get the base asset URL
     window.assetBaseUrl = "{{ 'main.js' | asset_url }}".split('main.js')[0];
   </script>
-  <script type="module" src="{{ 'main.js' | asset_url }}"></script>
+  <script type="module" src="{{ 'main.js' | asset_url }}?v={{ 'now' | date: '%s' }}"></script>
 </head>
 <body>
   {% section 'header' %}
