@@ -12,6 +12,13 @@
     "main": {
       "type": "custom-product-details",
       "blocks": {
+        "gallery_image_t7nr8R": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/20191011162220_39021.jpg",
+            "product_slug": "Pylon Signs"
+          }
+        },
         "gallery_image_LmgXFN": {
           "type": "gallery_image",
           "settings": {
@@ -96,6 +103,7 @@
         }
       },
       "block_order": [
+        "gallery_image_t7nr8R",
         "gallery_image_LmgXFN",
         "gallery_image_nQjQgH",
         "gallery_image_bRRdrJ",
