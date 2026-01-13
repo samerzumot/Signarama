@@ -12,6 +12,53 @@
     "main": {
       "type": "custom-product-details",
       "blocks": {
+        "gallery_image_nQjQgH": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/Freshii_Channel_Letters.jpg",
+            "product_slug": "channel-letters"
+          }
+        },
+        "gallery_image_bRRdrJ": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/Meza.jpg",
+            "product_slug": "channel-letters"
+          }
+        },
+        "gallery_image_zwE9Ez": {
+          "type": "gallery_image",
+          "settings": {
+            "product_slug": "channel-letters"
+          }
+        },
+        "gallery_image_UzBp79": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/Mazzing.jpg",
+            "product_slug": "channel-letters"
+          }
+        },
+        "gallery_image_RVYccc": {
+          "type": "gallery_image",
+          "settings": {
+            "product_slug": "channel-letters"
+          }
+        },
+        "gallery_image_GDbGtf": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/Toronto_Blue_Jays.jpg",
+            "product_slug": "channel-letters"
+          }
+        },
+        "gallery_image_yQmXDe": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/Allmart.jpg",
+            "product_slug": "channel-letters"
+          }
+        },
         "gallery_image_BbALjT": {
           "type": "gallery_image",
           "settings": {
@@ -42,6 +89,13 @@
         }
       },
       "block_order": [
+        "gallery_image_nQjQgH",
+        "gallery_image_bRRdrJ",
+        "gallery_image_zwE9Ez",
+        "gallery_image_UzBp79",
+        "gallery_image_RVYccc",
+        "gallery_image_GDbGtf",
+        "gallery_image_yQmXDe",
         "gallery_image_BbALjT",
         "gallery_image_ctH9Tq",
         "gallery_image_G8Gjir",
