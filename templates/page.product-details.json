@@ -12,6 +12,13 @@
     "main": {
       "type": "custom-product-details",
       "blocks": {
+        "gallery_image_LmgXFN": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/The_Vllage_2.jpg",
+            "product_slug": "channel-letters"
+          }
+        },
         "gallery_image_nQjQgH": {
           "type": "gallery_image",
           "settings": {
@@ -89,6 +96,7 @@
         }
       },
       "block_order": [
+        "gallery_image_LmgXFN",
         "gallery_image_nQjQgH",
         "gallery_image_bRRdrJ",
         "gallery_image_zwE9Ez",
