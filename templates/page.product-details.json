@@ -12,6 +12,27 @@
     "main": {
       "type": "custom-product-details",
       "blocks": {
+        "gallery_image_BbALjT": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/Avalee_2.jpg",
+            "product_slug": "channel-letters"
+          }
+        },
+        "gallery_image_ctH9Tq": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/Walking_on_a_Cloud_2.jpg",
+            "product_slug": "channel-letters"
+          }
+        },
+        "gallery_image_G8Gjir": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/Ethan_Allen.jpg",
+            "product_slug": "channel-letters"
+          }
+        },
         "gallery_image_PUExLh": {
           "type": "gallery_image",
           "settings": {
@@ -21,6 +42,9 @@
         }
       },
       "block_order": [
+        "gallery_image_BbALjT",
+        "gallery_image_ctH9Tq",
+        "gallery_image_G8Gjir",
         "gallery_image_PUExLh"
       ],
       "settings": {}
