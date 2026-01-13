@@ -12,6 +12,12 @@
     "main": {
       "type": "custom-product-details",
       "blocks": {
+        "gallery_image_MceyBi": {
+          "type": "gallery_image",
+          "settings": {
+            "product_slug": "channel-letters"
+          }
+        },
         "gallery_image_Qipaxm": {
           "type": "gallery_image",
           "settings": {
@@ -103,6 +109,7 @@
         }
       },
       "block_order": [
+        "gallery_image_MceyBi",
         "gallery_image_Qipaxm",
         "gallery_image_LmgXFN",
         "gallery_image_nQjQgH",
