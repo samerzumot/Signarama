@@ -12,6 +12,19 @@
     "main": {
       "type": "custom-product-details",
       "blocks": {
+        "gallery_image_xmiYBk": {
+          "type": "gallery_image",
+          "settings": {
+            "image": "shopify://shop_images/Eco_Compact_1.jpg",
+            "product_slug": "channel-letters"
+          }
+        },
+        "gallery_image_BtPWjy": {
+          "type": "gallery_image",
+          "settings": {
+            "product_slug": "channel-letters"
+          }
+        },
         "gallery_image_MceyBi": {
           "type": "gallery_image",
           "settings": {
@@ -109,6 +122,8 @@
         }
       },
       "block_order": [
+        "gallery_image_xmiYBk",
+        "gallery_image_BtPWjy",
         "gallery_image_MceyBi",
         "gallery_image_Qipaxm",
         "gallery_image_LmgXFN",
