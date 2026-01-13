@@ -12,11 +12,19 @@
     "main": {
       "type": "custom-product-details",
       "blocks": {
-        "gallery_image_xmiYBk": {
+        "gallery_image_wDADCA": {
           "type": "gallery_image",
           "settings": {
-            "image": "shopify://shop_images/Eco_Compact_1.jpg",
+            "image": "shopify://shop_images/HumberCollege2.jpg",
             "product_slug": "channel-letters"
+          }
+        },
+        "gallery_image_xmiYBk": {
+          "type": "gallery_image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Humber_College.jpg",
+            "product_slug": "Window Graphics"
           }
         },
         "gallery_image_BtPWjy": {
@@ -49,6 +57,12 @@
           "type": "gallery_image",
           "settings": {
             "image": "shopify://shop_images/Freshii_Channel_Letters.jpg",
+            "product_slug": "channel-letters"
+          }
+        },
+        "gallery_image_EDikLx": {
+          "type": "gallery_image",
+          "settings": {
             "product_slug": "channel-letters"
           }
         },
@@ -122,12 +136,14 @@
         }
       },
       "block_order": [
+        "gallery_image_wDADCA",
         "gallery_image_xmiYBk",
         "gallery_image_BtPWjy",
         "gallery_image_MceyBi",
         "gallery_image_Qipaxm",
         "gallery_image_LmgXFN",
         "gallery_image_nQjQgH",
+        "gallery_image_EDikLx",
         "gallery_image_bRRdrJ",
         "gallery_image_zwE9Ez",
         "gallery_image_UzBp79",
