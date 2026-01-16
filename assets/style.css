@@ -804,6 +804,12 @@ input[type="file"] {
 .product-card .card-body {
   padding: 1.5rem;
   background: #fff;
+  text-align: center;
+}
+
+.storefront-card img {
+  object-fit: contain !important;
+  background: #fff;
 }
 
 .product-card h3 {
