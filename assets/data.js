@@ -2,7 +2,7 @@ export const products = [
     {
         slug: '3d-signs-lettering',
         title: '3D Signs & Lettering',
-        image: '3D%20Lettering.webp',
+        image: 'king-dental.png',
         description: 'Custom 3D illuminated and non-illuminated signs that provide depth and impact for your brand.',
         longDescription: 'Our 3D lettering is precision-engineered to make your brand stand out. Crafted from premium aluminum, high-grade acrylic, or PVC, these letters are weather-resistant and offer a high-end look for any building facade.',
         gallery: [
@@ -20,7 +20,7 @@ export const products = [
     {
         slug: 'channel-letters',
         title: 'Channel Letters',
-        image: 'channel-one.png',
+        image: 'channel.webp',
         description: 'Vibrant, individual LED-illuminated letters that offer maximum visibility night and day.',
         longDescription: 'Channel letters are the industry standard for storefront visibility. Each letter is individually crafted and features internal LED illumination, available in front-lit or halo-lit configurations to match your brand style.',
         gallery: [
