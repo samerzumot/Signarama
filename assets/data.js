@@ -2,7 +2,7 @@ export const products = [
     {
         slug: '3d-signs-lettering',
         title: '3D Signs & Lettering',
-        image: 'king-dental.png',
+        image: 'king-dental.jpg',
         description: 'Custom 3D illuminated and non-illuminated signs that provide depth and impact for your brand.',
         longDescription: 'Our 3D lettering is precision-engineered to make your brand stand out. Crafted from premium aluminum, high-grade acrylic, or PVC, these letters are weather-resistant and offer a high-end look for any building facade.',
         gallery: [
