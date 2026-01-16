@@ -33,6 +33,8 @@
       gap: 15px;
       overflow-x: auto;
       padding-bottom: 10px;
+      scroll-snap-type: x mandatory; /* Seamless scrolling feel */
+      -webkit-overflow-scrolling: touch;
   }
 
   .thumbnail {
@@ -44,6 +46,7 @@
       opacity: 0.6;
       transition: all 0.3s;
       border: 2px solid transparent;
+      scroll-snap-align: start; /* Snap to start */
   }
 
   .thumbnail.active,
@@ -100,7 +103,7 @@
   @media (max-width: 900px) {
       .product-detail-container {
           grid-template-columns: 1fr;
-          margin-top: 120px;
+          margin-top: 150px; /* Increased to ensure no overlap on mobile header stacks */
           gap: 40px;
       }
 
