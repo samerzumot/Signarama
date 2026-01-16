@@ -9,7 +9,9 @@ export const products = [
             '3D%20Lettering.webp',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/TrimDepot.jpg?v=1666724364',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/AquaStar.jpg?v=1666724374',
-            'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/Elite.jpg?v=1666724374'
+            'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/Elite.jpg?v=1666724374',
+            '3d-boss-leather.jpg',
+            '3d-pain-specialists.jpg'
         ]
     },
     {
