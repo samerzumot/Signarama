@@ -158,6 +158,9 @@ export const products = [
         description: 'Durable site signage for development, safety, and branding.',
         longDescription: 'Keep your job site safe and professional. We provide a full range of construction signage, including project renderings, safety notices, and large-scale hoarding graphics that build excitement for your new development.',
         gallery: [
+            'construction-1.png',
+            'construction-2.png',
+            'construction-foresight.jpg',
             'construction.webp'
         ]
     },
