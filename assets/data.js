@@ -59,7 +59,14 @@ export const products = [
         longDescription: 'Pylon signs are landmark identifiers for shopping centers and corporate offices. We design and install durable, high-impact pylons that help your business capture traffic from busy roads and highways.',
         gallery: [
             'pylon.webp',
-            'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/1_a44cbcbf-430d-4cbb-9a01-f89e6ca69ed1.png?v=1615759593'
+            'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/1_a44cbcbf-430d-4cbb-9a01-f89e6ca69ed1.png?v=1615759593',
+            'pylon-brock-road-refresh.jpg',
+            'pylon-img-2148.jpg',
+            'pylon-img-2712.jpg',
+            'pylon-love-and-paws.jpg',
+            'pylon-photo-2023.jpg',
+            'pylon-resized-2024.jpg',
+            'pylon-whatsapp-2025.jpg'
         ]
     },
     {
@@ -70,7 +77,6 @@ export const products = [
         longDescription: 'From corporate logos to directional wayfinding, our indoor sign solutions are designed to enhance your interior space. We use premium finishes like brushed metal and glass-look acrylic to create an environment of professionalism.',
         gallery: [
             'office.webp',
-            'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/TruBliss3.jpg?v=1615759949',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/TruBliss3.jpg?v=1615759949',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/Innovatusjpg.jpg?v=1615759950',
             'indoor-cml.jpg',
