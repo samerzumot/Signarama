@@ -23,7 +23,7 @@ export const products = [
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/fiveguys.png?v=1615739236',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/ProtegeOutdoorLiving-NightView.jpg?v=1666722082',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/WalkingOnACloud_1.jpg?v=1666722082',
-            'channel-1.png',
+            'channel-one.png',
             'channel-allmart.jpg',
             'channel-avalee.jpg',
             'channel-canaroma.jpg',
