@@ -216,7 +216,7 @@ export const products = [
     {
         slug: 'storefront-signs',
         title: 'Storefront Signs',
-        image: 'storefront-1.png',
+        image: 'storefront-5.png',
         description: 'Complete storefront solutions including fascias, window lettering, and illuminated signs.',
         longDescription: 'Make a powerful first impression with our complete storefront signage solutions. We design, fabricate, and install everything from main fascia signs to window graphics and A-frames, ensuring your entire storefront communicates your brand effectively.',
         gallery: [
