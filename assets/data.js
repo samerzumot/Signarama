@@ -25,7 +25,6 @@ export const products = [
         longDescription: 'Channel letters are the industry standard for storefront visibility. Each letter is individually crafted and features internal LED illumination, available in front-lit or halo-lit configurations to match your brand style.',
         gallery: [
             'channel-one.png',
-            'channel-1-2.png',
             'channel-9601.jpg',
             'channel-allmart-2.jpg',
             'channel-avalee-2.jpg',
@@ -175,6 +174,37 @@ export const products = [
             'digital-img-3762.jpg',
             'digital-walkerpoints.jpg',
             'digital.webp'
+        ]
+    },
+    {
+        slug: 'awning-graphics',
+        title: 'Awning Graphics',
+        image: 'awning-1.jpg',
+        description: 'Stylish and functional awnings to enhance your storefront and provide shade.',
+        longDescription: 'Awnings provide a perfect blend of form and function. They offer shelter for your customers while serving as a prominent location for your branding. We design custom awning graphics that are weather-resistant and visually striking.',
+        gallery: [
+            'awning-1.jpg',
+            'awning-2.jpg',
+            'awning-5.png',
+            'awning-7.png',
+            'awning-boss-leather.jpg',
+            'awning-harps.jpg',
+            'awning-img-0334.jpg'
+        ]
+    },
+    {
+        slug: 'led-backlit',
+        title: 'LED Backlit Signs',
+        image: 'led-32897.jpg',
+        description: 'High-impact illuminated signs with a sophisticated halo effect.',
+        longDescription: 'Create a premium look with LED backlit signs. These "halo-lit" letters provide a soft, elegant glow that outlines your text or logo, making your signage pop against the building facade with a modern, upscale appeal.',
+        gallery: [
+            'led-32897.jpg',
+            'led-32897-2.jpg',
+            'led-46925.jpg',
+            'led-47052.jpg',
+            'led-47052-2.jpg',
+            'led-47789.jpg'
         ]
     }
 ];
