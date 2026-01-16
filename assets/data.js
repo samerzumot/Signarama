@@ -23,17 +23,17 @@ export const products = [
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/fiveguys.png?v=1615739236',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/ProtegeOutdoorLiving-NightView.jpg?v=1666722082',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/WalkingOnACloud_1.jpg?v=1666722082',
-            '1 (2).png',
-            'Allmart.jpg',
-            'Avalee # 2.jpg',
-            'Canaroma.jpeg',
-            'Ethan Allen2.jpeg',
-            'Freshii Channel Letters.jpg',
-            'Makers.jpg',
-            'Mazzzing 1.jpg',
-            'Norma Reed 2.jpg',
-            'Pullman 1.jpg',
-            'Walking on a Cloud 2.jpeg'
+            'channel-1.png',
+            'channel-allmart.jpg',
+            'channel-avalee.jpg',
+            'channel-canaroma.jpg',
+            'channel-ethan-allen.jpg',
+            'channel-freshii.jpg',
+            'channel-makers.jpg',
+            'channel-mazzzing.jpg',
+            'channel-norma-reed.jpg',
+            'channel-pullman.jpg',
+            'channel-walking-on-a-cloud.jpg'
         ]
     },
     {
