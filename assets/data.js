@@ -120,7 +120,14 @@ export const products = [
         gallery: [
             'window.webp',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/Happysmile2.jpg?v=1615759866',
-            'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/DSNAccountingPerf.jpg?v=1615759866'
+            'window-20210519.jpg',
+            'window-di-paola.jpg',
+            'window-divine.jpg',
+            'window-humber-college.jpg',
+            'window-img-0307.jpg',
+            'window-img-0312.jpg',
+            'window-mary-browns.jpg',
+            'window-spa.jpg'
         ]
     },
     {
