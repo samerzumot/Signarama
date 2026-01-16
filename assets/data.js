@@ -24,6 +24,7 @@ export const products = [
         description: 'Vibrant, individual LED-illuminated letters that offer maximum visibility night and day.',
         longDescription: 'Channel letters are the industry standard for storefront visibility. Each letter is individually crafted and features internal LED illumination, available in front-lit or halo-lit configurations to match your brand style.',
         gallery: [
+            'channel.webp',
             'channel-one.png',
             'channel-pullman-2.jpg',
             'channel-unknown.jpg',
@@ -47,7 +48,6 @@ export const products = [
             'channel-norma-reed.jpg',
             'channel-pullman.jpg',
             'channel-walking-on-a-cloud.jpg',
-            'channel.webp',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/fiveguys.png?v=1615739236',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/ProtegeOutdoorLiving-NightView.jpg?v=1666722082',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/WalkingOnACloud_1.jpg?v=1666722082'
@@ -216,7 +216,7 @@ export const products = [
     {
         slug: 'storefront-signs',
         title: 'Storefront Signs',
-        image: 'storefront-5.png',
+        image: 'storefront-main.png',
         description: 'Complete storefront solutions including fascias, window lettering, and illuminated signs.',
         longDescription: 'Make a powerful first impression with our complete storefront signage solutions. We design, fabricate, and install everything from main fascia signs to window graphics and A-frames, ensuring your entire storefront communicates your brand effectively.',
         gallery: [
