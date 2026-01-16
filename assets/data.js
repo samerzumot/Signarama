@@ -81,7 +81,18 @@ export const products = [
         gallery: [
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/ubereats1.jpg?v=1615759542',
             'vehicle.webp',
-            'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/dermameat2.jpg?v=1666721592'
+            'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/dermameat2.jpg?v=1666721592',
+            'vehicle-hongmall.jpg',
+            'vehicle-eco-compact.jpg',
+            'vehicle-ecotech.jpg',
+            'vehicle-humber.jpg',
+            'vehicle-fix-easy.jpg',
+            'vehicle-flooring-canada.jpg',
+            'vehicle-frame-53.png',
+            'vehicle-ice-cream.jpg',
+            'vehicle-planet-concrete.png',
+            'vehicle-pullman.jpg',
+            'vehicle-rosegold.jpg'
         ]
     },
     {
