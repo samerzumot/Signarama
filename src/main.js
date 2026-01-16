@@ -2,6 +2,7 @@ import { products } from './data.js';
 
 const grid = document.getElementById('product-grid');
 
+/*
 if (grid) {
   products.forEach(product => {
     const card = document.createElement('div');
@@ -18,6 +19,7 @@ if (grid) {
     grid.appendChild(card);
   });
 }
+*/
 
 
 // Testimonial Scroll Logic
