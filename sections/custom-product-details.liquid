@@ -1,7 +1,7 @@
 <style>
   .product-detail-container {
       max-width: 1200px;
-      margin: 40px auto 60px; /* Reduced top margin since header is not fixed overlap in same way or handled by theme spacing */
+      margin: 140px auto 60px; /* Increased top margin for fixed header */
       padding: 0 40px;
       display: grid;
       grid-template-columns: 1.2fr 1fr;
@@ -100,7 +100,7 @@
   @media (max-width: 900px) {
       .product-detail-container {
           grid-template-columns: 1fr;
-          margin-top: 40px;
+          margin-top: 120px;
           gap: 40px;
       }
 
@@ -251,9 +251,55 @@
               document.getElementById('main-product-image').src = getImgSrc(img);
               document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
               thumb.classList.add('active');
+              stopSlideshow(); // Stop rotation on manual interaction
           };
           thumbStrip.appendChild(thumb);
       });
+
+      // --- Auto Rotation Logic ---
+      let slideInterval;
+      
+      function startSlideshow() {
+          stopSlideshow(); // clear existing
+          slideInterval = setInterval(() => {
+              const current = thumbStrip.querySelector('.thumbnail.active');
+              let nextCallback = current ? current.nextElementSibling : null;
+              
+              if (!nextCallback && thumbStrip.children.length > 0) {
+                  // Loop back to start
+                  nextCallback = thumbStrip.firstElementChild;
+              }
+              
+              if (nextCallback) {
+                  // Manually update classes and src
+                  const newSrc = nextCallback.src;
+                  document.getElementById('main-product-image').src = newSrc;
+                  
+                  document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                  nextCallback.classList.add('active');
+                  
+                  // Scroll thumbnail into view if off screen
+                  nextCallback.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+              }
+          }, 3000); // 3 seconds
+      }
+
+      function stopSlideshow() {
+          if (slideInterval) clearInterval(slideInterval);
+      }
+
+      // Start slideshow if multiple images
+      if (fullGallery.length > 1) {
+          startSlideshow();
+
+          // Stop on hover over gallery
+          const gallery = document.querySelector('.product-gallery');
+          if (gallery) {
+              gallery.addEventListener('mouseenter', stopSlideshow);
+              gallery.addEventListener('mouseleave', startSlideshow);
+          }
+      }
+
   } else {
       // Fallback for Editor / Direct Access without param
       // Don't redirect, just show the first product as a demo
