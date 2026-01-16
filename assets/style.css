@@ -17,6 +17,13 @@ body {
   font-family: var(--font-family);
   color: var(--text-dark);
   line-height: 1.6;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 .container {

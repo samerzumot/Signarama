@@ -15,7 +15,7 @@ export const products = [
     {
         slug: 'channel-letters',
         title: 'Channel Letters',
-        image: 'channel.webp',
+        image: 'channel-one.png',
         description: 'Vibrant, individual LED-illuminated letters that offer maximum visibility night and day.',
         longDescription: 'Channel letters are the industry standard for storefront visibility. Each letter is individually crafted and features internal LED illumination, available in front-lit or halo-lit configurations to match your brand style.',
         gallery: [
