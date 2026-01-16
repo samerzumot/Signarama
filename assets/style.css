@@ -146,8 +146,8 @@ body {
   position: relative;
   min-height: 85vh;
   display: flex;
-  align-items: center;
-  /* Center content vertically */
+  align-items: flex-end;
+  /* Align content to bottom */
   justify-content: center;
   /* Center content horizontally */
   color: var(--text-light);
