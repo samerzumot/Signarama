@@ -146,10 +146,10 @@ body {
   position: relative;
   min-height: 85vh;
   display: flex;
-  align-items: flex-end;
-  /* Align content to bottom */
-  justify-content: flex-start;
-  /* Align content to left */
+  align-items: center;
+  /* Center content vertically */
+  justify-content: center;
+  /* Center content horizontally */
   color: var(--text-light);
   overflow: hidden;
   margin-top: 50px;
