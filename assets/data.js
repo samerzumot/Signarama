@@ -212,5 +212,23 @@ export const products = [
             'led-47052-2.jpg',
             'led-47789.jpg'
         ]
+    },
+    {
+        slug: 'storefront-signs',
+        title: 'Storefront Signs',
+        image: 'storefront-1.png',
+        description: 'Complete storefront solutions including fascias, window lettering, and illuminated signs.',
+        longDescription: 'Make a powerful first impression with our complete storefront signage solutions. We design, fabricate, and install everything from main fascia signs to window graphics and A-frames, ensuring your entire storefront communicates your brand effectively.',
+        gallery: [
+            'storefront-1.png',
+            'storefront-3.png',
+            'storefront-4.png',
+            'storefront-5.png',
+            'storefront-booster-juice.jpg',
+            'storefront-homecare.jpg',
+            'storefront-smoke-bbq.jpg',
+            'storefront-vacation.jpg',
+            'storefront-wicks-vape.jpg'
+        ]
     }
 ];
