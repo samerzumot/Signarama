@@ -19,6 +19,10 @@ export const products = [
         description: 'Vibrant, individual LED-illuminated letters that offer maximum visibility night and day.',
         longDescription: 'Channel letters are the industry standard for storefront visibility. Each letter is individually crafted and features internal LED illumination, available in front-lit or halo-lit configurations to match your brand style.',
         gallery: [
+            'channel.webp',
+            'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/fiveguys.png?v=1615739236',
+            'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/ProtegeOutdoorLiving-NightView.jpg?v=1666722082',
+            'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/WalkingOnACloud_1.jpg?v=1666722082',
             '1 (2).png',
             'Allmart.jpg',
             'Avalee # 2.jpg',
