@@ -46,9 +46,11 @@ export const products = [
         longDescription: 'Light boxes offer a versatile and cost-effective way to illuminate your business message. Built with durable aluminum frames and energy-efficient LED lighting, they are perfect for both exterior storefronts and interior menu boards.',
         gallery: [
             'illuminated.webp',
-            'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/47052091244_17ecb2cb10_o.jpg?v=1615759462',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/39856390854_56d678ee0b_o.jpg?v=1615759400',
-            'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/40748145933_6fa81be0fa_o.jpg?v=1615759338'
+            'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/40748145933_6fa81be0fa_o.jpg?v=1615759338',
+            'lightbox-47815-fd6.jpg',
+            'lightbox-47815-76c.jpg',
+            'lightbox-47815-a7f.jpg'
         ]
     },
     {
@@ -80,6 +82,7 @@ export const products = [
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/TruBliss3.jpg?v=1615759949',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/Innovatusjpg.jpg?v=1615759950',
             'indoor-cml.jpg',
+            'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/47052091244_17ecb2cb10_o.jpg?v=1615759462',
             'indoor-dael-thermal.jpg',
             'indoor-frame-55.png',
             'indoor-kiosoft.jpg',
