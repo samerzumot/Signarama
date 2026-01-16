@@ -18,7 +18,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <title>{{ page_title }}</title>
+  {% include 'seo-overrides' %}
+  {% if seo_title %}
+    <title>{{ seo_title }}</title>
+    <meta name="description" content="{{ seo_description }}">
+  {% else %}
+    <title>{{ page_title }}</title>
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+  {% endif %}
 
   {{ content_for_header }}
 
