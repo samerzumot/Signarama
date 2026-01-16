@@ -69,7 +69,15 @@ export const products = [
         gallery: [
             'office.webp',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/TruBliss3.jpg?v=1615759949',
-            'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/Innovatusjpg.jpg?v=1615759950'
+            'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/TruBliss3.jpg?v=1615759949',
+            'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/Innovatusjpg.jpg?v=1615759950',
+            'indoor-cml.jpg',
+            'indoor-dael-thermal.jpg',
+            'indoor-frame-55.png',
+            'indoor-kiosoft.jpg',
+            'indoor-paulas-wig-boutique.jpg',
+            'indoor-sejj-jr.jpg',
+            'indoor-walking-on-a-cloud.jpg'
         ]
     },
     {
