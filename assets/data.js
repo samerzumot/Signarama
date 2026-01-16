@@ -150,7 +150,10 @@ export const products = [
         description: 'Modern LED displays for dynamic messaging and high-impact advertising.',
         longDescription: 'Stay ahead of the competition with dynamic digital displays. Our LED message centers allow you to change your content instantly, providing a high-impact, modern way to communicate with your customers in real-time.',
         gallery: [
-            'digital.webp'
+            'digital.webp',
+            'digital-1-ff8b.png',
+            'digital-img-3762.jpg',
+            'digital-walkerpoints.jpg'
         ]
     }
 ];
