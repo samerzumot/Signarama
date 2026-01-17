@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ request.locale.iso_code }}">
 <head> 
-    <script src='{{ 'easy_quote_sealapps.js' | asset_url }}' defer='defer' ></script> 
+ 
     <script id='quote_product_variants' type='application/json'>
         {{ product.variants | json }}
     </script>
@@ -31,7 +31,7 @@
 
   {{ content_for_header }}
 
-  {{ 'style.css' | asset_url | stylesheet_tag }}
+  {{ 'style.min.css' | asset_url | stylesheet_tag }}
   <script>
     // Hack to get the base asset URL
     window.assetBaseUrl = "{{ 'main.js' | asset_url }}".split('main.js')[0];
@@ -46,6 +46,7 @@
   </main>
 
   {% section 'footer' %}
+  <script src='{{ 'easy_quote_sealapps.js' | asset_url }}' defer='defer' ></script>
 
   <!-- GLOBAL QUOTE MODAL (PREMIUM VERSION WITH FILE UPLOAD) -->
   <div id="quote-modal" class="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center;">
