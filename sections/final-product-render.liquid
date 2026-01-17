@@ -1,11 +1,20 @@
-<div style="background: green; color: white; padding: 20px; text-align: center;">
-  <h1>FINAL RENDER SECTION LOADED</h1>
-  <p>The filename 'final-product-render' is valid. Now restoring code...</p>
+<div style="background: #00bcd4; color: white; padding: 20px; text-align: center;">
+  <h1>SYNTAX TEST: COMMA IN WHEN</h1>
+  <p>Testing: <code>{% when 'a', 'b' %}</code></p>
 </div>
+
+{% assign handle = 'test' %}
+
+{% case handle %}
+  {% when 'test', 'test-1' %}
+    <p>Success! Comma syntax is supported.</p>
+  {% else %}
+    <p>Success! Case default works.</p>
+{% endcase %}
 
 {% schema %}
 {
-  "name": "Final Product Render",
+  "name": "Syntax Test",
   "settings": []
 }
 {% endschema %}
