@@ -269,29 +269,29 @@
 
     @media (max-width: 900px) {
       .product-details-page {
-          padding-top: 140px;
+          padding-top: 120px;
       }
       .product-hero {
         grid-template-columns: 1fr;
         gap: 2rem;
       }
+      /* Made Button Static for Better Visibility */
       .cta-wrapper {
-        position: fixed;
-        bottom: 0;
-        left: 0;
+        position: static;
         width: 100%;
-        padding: 1rem;
-        background: white;
-        box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
-        z-index: 1000;
-        text-align: center;
+        margin-top: 1.5rem;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+        text-align: left;
       }
       .btn-primary {
         width: 100%;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+        padding: 1rem;
       }
       .page-width.container {
-        padding-bottom: 100px; /* Space for fixed bottom CTA */
+        padding-bottom: 40px; 
       }
       .gallery-item {
         flex: 0 0 200px;
