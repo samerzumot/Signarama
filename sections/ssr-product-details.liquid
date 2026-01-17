@@ -4,6 +4,13 @@
   Supports both standard handles (e.g., 'vehicle-graphics') and duplicate handles (e.g., 'vehicle-graphics-1').
 {% endcomment %}
 
+<!-- DEBUG: CONFIRMING SECTION LOAD -->
+<div style="background: pink; color: black; padding: 20px; text-align: center; border: 4px solid red; font-size: 20px; font-weight: bold;">
+  DEBUG MODE ACTIVE<br>
+  Section: ssr-product-details.liquid<br>
+  Page Handle: "{{ page.handle }}"
+</div>
+
 {% assign handle = page.handle %}
 {% assign title = nil %}
 
