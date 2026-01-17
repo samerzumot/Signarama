@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "custom-product-details",
+      "type": "final-product-render",
       "settings": {}
     }
   },
