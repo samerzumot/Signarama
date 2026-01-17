@@ -132,7 +132,6 @@
            {% if main_image contains 'http' %}
              <img src="{{ main_image }}" alt="{{ title }} - Main Image" id="main-product-image" width="800" height="600" style="width: 100%; height: auto; object-fit: contain;">
            {% else %}
-             <!-- Using asset_url to pull from Theme Assets (where we confirmed they exist) -->
              <img src="{{ main_image | asset_url }}" alt="{{ title }} - Main Image" id="main-product-image" width="800" height="600" style="width: 100%; height: auto; object-fit: contain;">
            {% endif %}
         </div>
@@ -143,25 +142,24 @@
           <p class="product-description-long">{{ long_description }}</p>
           
           <div class="cta-wrapper">
-             <!-- SEO Optimized Button with Product Name -->
-             <a href="/pages/contact-us?subject=Quote%20Request:%20{{ title | url_param_escape }}" class="btn-primary" aria-label="Get {{ title }} Quote">Get {{ title }} Quote</a>
+             <!-- Wired to open the Quote Modal -->
+             <button id="product-quote-trigger" class="btn-primary" data-product="{{ title }}">Get {{ title }} Quote</button>
           </div>
         </div>
       </div>
 
       <hr style="margin: 3rem 0; border: 0; border-top: 1px solid #eee;">
 
-      <!-- Image Gallery -->
+      <!-- Image Gallery (Horizontal Scroll) -->
       <div class="product-gallery">
         <h3>Gallery</h3>
-        <div class="gallery-grid">
+        <div class="gallery-scroll-container">
           {% for img in gallery_images %}
             <div class="gallery-item">
               {% if img contains 'http' %}
-                 <img src="{{ img }}" alt="{{ title }} Gallery Image {{ forloop.index }}" loading="lazy" width="400" height="300">
+                 <img src="{{ img }}" alt="{{ title }} Gallery Image {{ forloop.index }}" loading="lazy">
               {% else %}
-                 <!-- Using asset_url for gallery images too -->
-                 <img src="{{ img | asset_url }}" alt="{{ title }} Gallery Image {{ forloop.index }}" loading="lazy" width="400" height="300">
+                 <img src="{{ img | asset_url }}" alt="{{ title }} Gallery Image {{ forloop.index }}" loading="lazy">
               {% endif %}
             </div>
           {% endfor %}
@@ -171,8 +169,45 @@
     </div>
   </div>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const quoteBtn = document.getElementById('product-quote-trigger');
+      const modal = document.getElementById('quote-modal');
+      
+      if (quoteBtn && modal) {
+        quoteBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Pre-fill the message area if it exists
+          const messageArea = modal.querySelector('textarea[name="message"]');
+          if (messageArea) {
+             const productName = this.getAttribute('data-product');
+             // Only set if empty or standard text
+             if (!messageArea.value || messageArea.value.trim() === '') {
+                 messageArea.value = "I am interested in a quote for " + productName + ".";
+             }
+          }
+          
+          // Show Modal
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+    });
+
+    // Gallery Click to Swap (Optional enhancement)
+    const mainImage = document.getElementById('main-product-image');
+    if (mainImage) {
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.addEventListener('click', function() {
+                mainImage.src = this.src;
+            });
+            img.style.cursor = 'pointer';
+        });
+    }
+  </script>
+
   <style>
-    /* Embed Styles directly to ensure they load */
     .product-details-page {
       padding: 4rem 0;
     }
@@ -191,7 +226,7 @@
     .product-title {
       font-size: 2.5rem;
       font-weight: 800;
-      color: #d32f2f; /* Signarama Red */
+      color: #d32f2f;
       margin-bottom: 1rem;
       line-height: 1.2;
     }
@@ -207,22 +242,48 @@
       color: #555;
       margin-bottom: 2rem;
     }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
+    
+    /* Horizontal Scroll Gallery */
+    .gallery-scroll-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 15px;
+      padding-bottom: 20px; /* Space for scrollbar */
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin; /* Firefox */
+      scrollbar-color: #d32f2f #f1f1f1;
+    }
+    .gallery-scroll-container::-webkit-scrollbar {
+      height: 8px;
+    }
+    .gallery-scroll-container::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+    .gallery-scroll-container::-webkit-scrollbar-thumb {
+      background: #d32f2f;
+      border-radius: 4px;
+    }
+    
+    .gallery-item {
+      flex: 0 0 280px; /* Fixed width for consistent items */
+      height: 200px;
+      scroll-snap-align: start;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .gallery-item:hover {
+      transform: translateY(-2px);
     }
     .gallery-item img {
       width: 100%;
-      height: 250px;
+      height: 100%;
       object-fit: cover;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    .gallery-item img:hover {
-        transform: scale(1.02);
-    }
+
     .btn-primary {
       background-color: #d32f2f;
       color: white !important;
@@ -260,8 +321,12 @@
       .btn-primary {
         width: 100%;
       }
-      .product-details-page {
-        padding-bottom: 80px; /* Space for sticky CTA */
+      .page-width.container {
+        padding-bottom: 80px;
+      }
+      .gallery-item {
+        flex: 0 0 220px; /* Smaller items on mobile */
+        height: 160px;
       }
     }
   </style>
