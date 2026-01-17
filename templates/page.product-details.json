@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "ssr-product-details",
+      "type": "custom-product-details",
       "settings": {}
     }
   },
