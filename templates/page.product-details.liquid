@@ -1,3 +1,98 @@
+{% comment %}
+  Monolithic Product Details Template
+  Contains all data, logic, and layout in one file to bypass registry issues.
+{% endcomment %}
+
+{% assign handle = page.handle %}
+{% assign title = nil %}
+
+<!-- DATA CONFIGURATION -->
+{% if handle == '3d-signs-lettering' or handle == '3d-signs-lettering-1' %}
+    {% assign title = "3D Signs & Lettering" %}
+    {% assign description = "Custom 3D illuminated and non-illuminated signs that provide depth and impact for your brand." %}
+    {% assign long_description = "Our 3D lettering is precision-engineered to make your brand stand out. Crafted from premium aluminum, high-grade acrylic, or PVC, these letters are weather-resistant and offer a high-end look for any building facade." %}
+    {% assign main_image = "king-dental.jpg" %}
+    {% assign gallery_images = "3d-boss-leather.jpg,3d-pain-specialists.jpg,3d-2016-photo.jpg,3d-46856.jpg,3d-5.png,3D%20Lettering.webp,https://cdn.shopify.com/s/files/1/0553/3034/1058/products/TrimDepot.jpg?v=1666724364,https://cdn.shopify.com/s/files/1/0553/3034/1058/products/AquaStar.jpg?v=1666724374,https://cdn.shopify.com/s/files/1/0553/3034/1058/products/Elite.jpg?v=1666724374" | split: ',' %}
+
+{% elsif handle == 'channel-letters' or handle == 'channel-letters-1' %}
+    {% assign title = "Channel Letters" %}
+    {% assign description = "Vibrant, individual LED-illuminated letters that offer maximum visibility night and day." %}
+    {% assign long_description = "Channel letters are the industry standard for storefront visibility. Each letter is individually crafted and features internal LED illumination, available in front-lit or halo-lit configurations to match your brand style." %}
+    {% assign main_image = "channel.webp" %}
+    {% assign gallery_images = "channel.webp,channel-one.png,channel-pullman-2.jpg,channel-unknown.jpg,channel-walking-on-a-cloud-2.jpg,channel-9601.jpg,channel-allmart-2.jpg,channel-avalee-2.jpg,channel-canaroma-2.jpg,channel-ethan-allen-2.jpg,channel-freshii-2.jpg,channel-makers-2.jpg,channel-mazzzing-2.jpg,channel-norma-reed-2.jpg,channel-allmart.jpg,channel-avalee.jpg,channel-canaroma.jpg,channel-ethan-allen.jpg,channel-freshii.jpg,channel-makers.jpg,channel-mazzzing.jpg,channel-norma-reed.jpg,channel-pullman.jpg,channel-walking-on-a-cloud.jpg,https://cdn.shopify.com/s/files/1/0553/3034/1058/products/fiveguys.png?v=1615739236,https://cdn.shopify.com/s/files/1/0553/3034/1058/products/ProtegeOutdoorLiving-NightView.jpg?v=1666722082,https://cdn.shopify.com/s/files/1/0553/3034/1058/products/WalkingOnACloud_1.jpg?v=1666722082" | split: ',' %}
+
+{% elsif handle == 'light-boxes' or handle == 'light-boxes-1' %}
+    {% assign title = "Light Boxes" %}
+    {% assign description = "Classic illuminated cabinets with bright, professional translucent graphics." %}
+    {% assign long_description = "Light boxes offer a versatile and cost-effective way to illuminate your business message. Built with durable aluminum frames and energy-efficient LED lighting, they are perfect for both exterior storefronts and interior menu boards." %}
+    {% assign main_image = "illuminated.webp" %}
+    {% assign gallery_images = "lightbox-47815-fd6.jpg,lightbox-47815-76c.jpg,lightbox-47815-a7f.jpg,illuminated.webp,https://cdn.shopify.com/s/files/1/0553/3034/1058/products/39856390854_56d678ee0b_o.jpg?v=1615759400,https://cdn.shopify.com/s/files/1/0553/3034/1058/products/40748145933_6fa81be0fa_o.jpg?v=1615759338" | split: ',' %}
+
+{% elsif handle == 'pylon-signs' or handle == 'pylon-signs-1' %}
+    {% assign title = "Pylon Signs" %}
+    {% assign description = "High-visibility freestanding signs designed to grab attention from a distance." %}
+    {% assign long_description = "Pylon signs are landmark identifiers for shopping centers and corporate offices. We design and install durable, high-impact pylons that help your business capture traffic from busy roads and highways." %}
+    {% assign main_image = "pylon.webp" %}
+    {% assign gallery_images = "pylon-brock-road-refresh.jpg,pylon-img-2148.jpg,pylon-img-2712.jpg,pylon-love-and-paws.jpg,pylon-photo-2023.jpg,pylon-resized-2024.jpg,pylon-whatsapp-2025.jpg,pylon.webp,https://cdn.shopify.com/s/files/1/0553/3034/1058/products/1_a44cbcbf-430d-4cbb-9a01-f89e6ca69ed1.png?v=1615759593" | split: ',' %}
+
+{% elsif handle == 'indoor-signs' or handle == 'indoor-signs-1' %}
+    {% assign title = "Indoor Signs" %}
+    {% assign description = "Professional interior branding solutions for reception areas, offices, and lobbies." %}
+    {% assign long_description = "From corporate logos to directional wayfinding, our indoor sign solutions are designed to enhance your interior space. We use premium finishes like brushed metal and glass-look acrylic to create an environment of professionalism." %}
+    {% assign main_image = "office.webp" %}
+    {% assign gallery_images = "indoor-cml.jpg,indoor-dael-thermal.jpg,indoor-frame-55.png,indoor-kiosoft.jpg,indoor-paulas-wig-boutique.jpg,indoor-walking-on-a-cloud.jpg,indoor-3.png,indoor-4.png,indoor-sejj-jr.jpg,office.webp,https://cdn.shopify.com/s/files/1/0553/3034/1058/products/TruBliss3.jpg?v=1615759949,https://cdn.shopify.com/s/files/1/0553/3034/1058/products/Innovatusjpg.jpg?v=1615759950,https://cdn.shopify.com/s/files/1/0553/3034/1058/products/47052091244_17ecb2cb10_o.jpg?v=1615759462" | split: ',' %}
+
+{% elsif handle == 'vehicle-graphics' or handle == 'vehicle-graphics-1' %}
+    {% assign title = "Vehicle Graphics" %}
+    {% assign description = "Turn your vehicle into a mobile billboard with custom graphics and wraps." %}
+    {% assign long_description = "Maximize your marketing reach on the road. Our vehicle graphics range from simple door logos to full commercial wraps, all using high-performance vinyl materials that protect your vehicle while promoting your brand." %}
+    {% assign main_image = "https://cdn.shopify.com/s/files/1/0553/3034/1058/products/ubereats1.jpg?v=1615759542" %}
+    {% assign gallery_images = "vehicle-hongmall.jpg,vehicle-eco-compact.jpg,vehicle-ecotech.jpg,vehicle-humber.jpg,vehicle-fix-easy.jpg,vehicle-flooring-canada.jpg,vehicle-frame-53.png,vehicle-ice-cream.jpg,vehicle-planet-concrete.png,vehicle-pullman.jpg,vehicle-rosegold.jpg,https://cdn.shopify.com/s/files/1/0553/3034/1058/products/ubereats1.jpg?v=1615759542,vehicle.webp,https://cdn.shopify.com/s/files/1/0553/3034/1058/products/dermameat2.jpg?v=1666721592" | split: ',' %}
+
+{% elsif handle == 'window-graphics' or handle == 'window-graphics-1' %}
+    {% assign title = "Window Graphics" %}
+    {% assign description = "Custom window decals and frostings for privacy and promotions." %}
+    {% assign long_description = "Transform your storefront windows into powerful marketing real estate. We offer everything from promotional decals to elegant frosted film for office privacy, all with professional installation and clean removal." %}
+    {% assign main_image = "window.webp" %}
+    {% assign gallery_images = "window-20210519.jpg,window-di-paola.jpg,window-divine.jpg,window-humber-college.jpg,window-img-0307.jpg,window-img-0312.jpg,window-mary-browns.jpg,window-spa.jpg,window.webp,https://cdn.shopify.com/s/files/1/0553/3034/1058/products/Happysmile2.jpg?v=1615759866" | split: ',' %}
+
+{% elsif handle == 'construction-signs' or handle == 'construction-signs-1' %}
+    {% assign title = "Construction Signs" %}
+    {% assign description = "Durable site signage for development, safety, and branding." %}
+    {% assign long_description = "Keep your job site safe and professional. We provide a full range of construction signage, including project renderings, safety notices, and large-scale hoarding graphics that build excitement for your new development." %}
+    {% assign main_image = "construction.webp" %}
+    {% assign gallery_images = "construction-1.png,construction-2.png,construction-foresight.jpg,construction.webp" | split: ',' %}
+
+{% elsif handle == 'digital-signs' or handle == 'digital-signs-1' %}
+    {% assign title = "Digital Signs" %}
+    {% assign description = "Modern LED displays for dynamic messaging and high-impact advertising." %}
+    {% assign long_description = "Stay ahead of the competition with dynamic digital displays. Our LED message centers allow you to change your content instantly, providing a high-impact, modern way to communicate with your customers in real-time." %}
+    {% assign main_image = "digital.webp" %}
+    {% assign gallery_images = "digital-yonge-st.jpg,digital-goldhawk.jpg,digital-full-color-p10.jpg,digital-haviland-school.jpg,digital-sweetwater.jpg,digital-crossings.jpg,digital-1-ff8b.png,digital-img-3762.jpg,digital-walkerpoints.jpg,digital.webp" | split: ',' %}
+
+{% elsif handle == 'awning-graphics' or handle == 'awning-graphics-1' %}
+    {% assign title = "Awning Graphics" %}
+    {% assign description = "Stylish and functional awnings to enhance your storefront and provide shade." %}
+    {% assign long_description = "Awnings provide a perfect blend of form and function. They offer shelter for your customers while serving as a prominent location for your branding. We design custom awning graphics that are weather-resistant and visually striking." %}
+    {% assign main_image = "awning-1.jpg" %}
+    {% assign gallery_images = "awning-1.jpg,awning-2.jpg,awning-5.png,awning-7.png,awning-boss-leather.jpg,awning-harps.jpg,awning-img-0334.jpg" | split: ',' %}
+
+{% elsif handle == 'led-backlit' or handle == 'led-backlit-1' %}
+    {% assign title = "LED Backlit Signs" %}
+    {% assign description = "High-impact illuminated signs with a sophisticated halo effect." %}
+    {% assign long_description = "Create a premium look with LED backlit signs. These \"halo-lit\" letters provide a soft, elegant glow that outlines your text or logo, making your signage pop against the building facade with a modern, upscale appeal." %}
+    {% assign main_image = "led-32897.jpg" %}
+    {% assign gallery_images = "led-32897.jpg,led-32897-2.jpg,led-46925.jpg,led-47052.jpg,led-47052-2.jpg,led-47789.jpg" | split: ',' %}
+
+{% elsif handle == 'storefront-signs' or handle == 'storefront-signs-1' %}
+    {% assign title = "Storefront Signs" %}
+    {% assign description = "Complete storefront solutions including fascias, window lettering, and illuminated signs." %}
+    {% assign long_description = "Make a powerful first impression with our complete storefront signage solutions. We design, fabricate, and install everything from main fascia signs to window graphics and A-frames, ensuring your entire storefront communicates your brand effectively." %}
+    {% assign main_image = "storefront-main.png" %}
+    {% assign gallery_images = "storefront-main.png,storefront-1.png,storefront-3.png,storefront-4.png,storefront-5.png,storefront-booster-juice.jpg,storefront-homecare.jpg,storefront-smoke-bbq.jpg,storefront-vacation.jpg,storefront-wicks-vape.jpg" | split: ',' %}
+
+{% endif %}
+
 <!-- RENDER LOGIC -->
 {% if title %}
   <!-- JSON-LD Structured Data for SEO -->
