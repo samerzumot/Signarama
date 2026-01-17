@@ -102,7 +102,7 @@
     "@type": "Service",
     "name": "{{ title }}",
     "image": [
-      {% if main_image contains 'http' %}"{{ main_image }}"{% else %}"{{ main_image | file_url }}"{% endif %}
+      {% if main_image contains 'http' %}"{{ main_image }}"{% else %}"{{ main_image | asset_url }}"{% endif %}
     ],
     "description": "{{ description }}",
     "provider": {
@@ -132,8 +132,8 @@
            {% if main_image contains 'http' %}
              <img src="{{ main_image }}" alt="{{ title }} - Main Image" id="main-product-image" width="800" height="600" style="width: 100%; height: auto; object-fit: contain;">
            {% else %}
-             <!-- Using file_url to pull from Shopify Files -->
-             <img src="{{ main_image | file_url }}" alt="{{ title }} - Main Image" id="main-product-image" width="800" height="600" style="width: 100%; height: auto; object-fit: contain;">
+             <!-- Using asset_url to pull from Theme Assets (where we confirmed they exist) -->
+             <img src="{{ main_image | asset_url }}" alt="{{ title }} - Main Image" id="main-product-image" width="800" height="600" style="width: 100%; height: auto; object-fit: contain;">
            {% endif %}
         </div>
         
@@ -143,7 +143,8 @@
           <p class="product-description-long">{{ long_description }}</p>
           
           <div class="cta-wrapper">
-             <a href="/pages/contact-us" class="btn-primary" aria-label="Get a Quote for {{ title }}">Get a Quote</a>
+             <!-- SEO Optimized Button with Product Name -->
+             <a href="/pages/contact-us?subject=Quote%20Request:%20{{ title | url_param_escape }}" class="btn-primary" aria-label="Get {{ title }} Quote">Get {{ title }} Quote</a>
           </div>
         </div>
       </div>
@@ -159,8 +160,8 @@
               {% if img contains 'http' %}
                  <img src="{{ img }}" alt="{{ title }} Gallery Image {{ forloop.index }}" loading="lazy" width="400" height="300">
               {% else %}
-                 <!-- Using file_url for gallery images too -->
-                 <img src="{{ img | file_url }}" alt="{{ title }} Gallery Image {{ forloop.index }}" loading="lazy" width="400" height="300">
+                 <!-- Using asset_url for gallery images too -->
+                 <img src="{{ img | asset_url }}" alt="{{ title }} Gallery Image {{ forloop.index }}" loading="lazy" width="400" height="300">
               {% endif %}
             </div>
           {% endfor %}
