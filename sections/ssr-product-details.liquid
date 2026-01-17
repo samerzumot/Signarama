@@ -1,12 +1,15 @@
 {% comment %}
-  SSR Product Details Section
-  Renders content based on the page handle (URL slug).
-  Replaces client-side JS rendering for better SEO and performance.
+  SSR Product Details Section - STABILIZATION VERSION
+  This file handles server-side rendering for product pages.
 {% endcomment %}
 
+<!-- DEBUG BANNER: SSR SECTION -->
+<div style="background: #d32f2f; color: #fff; padding: 15px; text-align: center; font-family: sans-serif; font-weight: bold; font-size: 16px; border-bottom: 3px solid #b71c1c;">
+  🛑 DEBUG MODE: Loaded 'sections/ssr-product-details.liquid'<br>
+  Current Handle: "{{ page.handle }}"
+</div>
+
 {% assign handle = page.handle %}
-
-
 
 {% case handle %}
   {% when '3d-signs-lettering' %}
@@ -249,9 +252,9 @@
 
 {% else %}
   <div class="container" style="padding: 4rem 0; text-align: center;">
-    <h1>Product Not Found</h1>
-    <p>We couldn't find the product you're looking for. Please view our <a href="/">homepage</a> for our full range of signage.</p>
-    <p style="color: red; font-weight: bold; margin-top: 10px;">Debug: Current Page Handle is "{{ handle }}"</p>
+    <h1 style="color: red;">Product Not Found / Handle Error</h1>
+    <p>Debug Handle: <strong>{{ handle }}</strong></p>
+    <p>Please ensure the Page Handle in Shopify Settings matches the code (e.g., 'channel-letters', 'pylon-signs').</p>
   </div>
 {% endif %}
 
