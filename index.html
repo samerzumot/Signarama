@@ -9,14 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="./src/style.css">
-  <link rel="preload" as="image" href="/assets/video-poster.webp">
+  <!-- Preload removed due to missing asset -->
 </head>
 
 <body>
   <header class="main-header">
     <div class="container">
       <a href="#" class="logo">
-        <img src="/assets/images/signarama-new-logo.png.webp" alt="Signarama Vaughan" style="height: 70px;">
+        <img src="assets/signarama-new-logo_png.webp" alt="Signarama Vaughan" style="height: 70px;">
       </a>
       <nav>
         <ul>
@@ -47,7 +47,7 @@
     <section class="hero-section">
       <div class="video-background">
         <!-- User provided video expected at this path -->
-        <video autoplay muted loop playsinline webkit-playsinline id="hero-video" poster="/assets/video-poster.webp"
+        <video autoplay muted loop playsinline webkit-playsinline id="hero-video"
           style="object-fit: cover; width: 100%; height: 100%;">
           <source src="/assets/video/signarama-video.webm" type="video/webm">
           <source src="/assets/video/signarama-video.mp4?v=2" type="video/mp4">
@@ -437,7 +437,7 @@
           <!-- Static Map Image for Performance -->
           <a href="https://www.google.com/maps/dir//7250+Keele+St+unit+286+Concord,+ON+L4K+1Z8+Canada/@43.7872132,-79.4975323,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x882b2fbc70dd1a73:0x175177cc0bed972a!2m2!1d-79.4975323!2d43.7872132?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D"
             target="_blank" aria-label="Open Google Maps Directions">
-            <img src="assets/static-map.png" alt="Signarama Vaughan Location Map" width="600" height="450"
+            <img src="assets/static-map.jpg" alt="Signarama Vaughan Location Map" width="600" height="450"
               loading="lazy" style="width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover;">
           </a>
         </div>
