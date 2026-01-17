@@ -168,78 +168,10 @@
     </div>
   </div>
 
-  <!-- SELF-CONTAINED QUOTE MODAL -->
-  <div id="product-quote-modal" class="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center;">
-      <div class="modal-content" style="background: white; padding: 2rem; border-radius: 8px; width: 90%; max-width: 500px; position: relative; max-height: 90vh; overflow-y: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
-        <button class="modal-close" id="product-close-modal" style="position: absolute; top: 10px; right: 15px; font-size: 28px; line-height: 1; border: none; background: none; cursor: pointer; color: #555;">&times;</button>
-        
-        <h2 style="text-align: center; color: #d32f2f; margin-bottom: 1.5rem; margin-top: 0;">Request a Quote</h2>
-        
-        <form id="product-quote-form" action="https://formsubmit.co/info@signarama-vaughan.com" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="_subject" value="New Quote Request - Signarama Vaughan">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="text" name="_honey" style="display:none">
-
-            <div class="form-group" style="margin-bottom: 1rem;">
-              <label style="display: block; margin-bottom: 5px; font-weight: 600;">Name</label>
-              <input type="text" required name="name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-            </div>
-            <div class="form-group" style="margin-bottom: 1rem;">
-              <label style="display: block; margin-bottom: 5px; font-weight: 600;">Email Address *</label>
-              <input type="email" required name="email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-            </div>
-            <div class="form-group" style="margin-bottom: 1rem;">
-              <label style="display: block; margin-bottom: 5px; font-weight: 600;">Phone Number *</label>
-              <input type="tel" required name="phone" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-            </div>
-            <div class="form-group" style="margin-bottom: 1rem;">
-              <label style="display: block; margin-bottom: 5px; font-weight: 600;">Project Details</label>
-              <textarea rows="4" name="message" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
-            </div>
-            
-            <button type="submit" class="btn-submit" style="width: 100%; background: #d32f2f; color: white; padding: 14px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; font-size: 1.1rem; margin-top: 10px;">Send Request</button>
-        </form>
-      </div>
-  </div>
-
+  <!-- Global Modal in theme.liquid handles the quote logic now -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var quoteBtn = document.getElementById('product-quote-trigger');
-      var modal = document.getElementById('product-quote-modal');
-      var closeBtn = document.getElementById('product-close-modal');
-      
-      if (quoteBtn && modal) {
-        // OPEN
-        quoteBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          var productName = this.getAttribute('data-product');
-          var messageArea = modal.querySelector('textarea[name="message"]');
-          if (messageArea) {
-             messageArea.value = "I am interested in a quote for " + productName + ".";
-          }
-          modal.style.display = 'flex'; 
-          document.body.style.overflow = 'hidden';
-        });
-
-        // CLOSE
-        if(closeBtn) {
-            closeBtn.addEventListener('click', function() {
-              modal.style.display = 'none';
-              document.body.style.overflow = '';
-            });
-        }
-
-        // CLICK OUTSIDE
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        });
-      }
-
-      // Gallery Logic
+      // Gallery Logic Only (Modal Logic Moved to Theme)
       var mainImage = document.getElementById('main-product-image');
       if (mainImage) {
           var items = document.querySelectorAll('.gallery-item img');
