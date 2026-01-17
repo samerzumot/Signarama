@@ -98,34 +98,38 @@
     document.addEventListener('DOMContentLoaded', function() {
       const modal = document.getElementById('quote-modal');
       const closeBtn = document.getElementById('close-modal');
-      // Trigger for ANY Get Quote button on the site
-      const triggers = document.querySelectorAll('.btn-quote-trigger-header, #product-quote-trigger, .btn-quote, .btn-get-quote');
 
-      // Add Click Event to ALL Quote Buttons found on the page
-      triggers.forEach(btn => {
-        btn.addEventListener('click', function(e) {
+      // OPEN MODAL (Event Delegation)
+      // Listens for clicks on the document and checks if they came from a quote button
+      document.body.addEventListener('click', function(e) {
+        // Find closest element with one of these classes/ids
+        const btn = e.target.closest('.btn-quote-trigger-header, #product-quote-trigger, .btn-quote, .btn-get-quote');
+        
+        if (btn) {
           e.preventDefault();
           
           // Check for Context (Product Page)
-          const productName = this.getAttribute('data-product');
+          const productName = btn.getAttribute('data-product');
           const messageArea = modal.querySelector('textarea[name="message"]');
           
           if (messageArea) {
              if (productName) {
                  messageArea.value = "I am interested in a quote for " + productName + ".";
              } else {
-                 // Reset if generic button - but don't clear user typed text if re-opening
-                 if(!messageArea.value || messageArea.value.includes("I am interested in")) {
-                      // Optional: Clear or leave empty
+                 // Only reset if it looks like an old auto-generated message
+                 const currentVal = messageArea.value;
+                 if (currentVal.includes("I am interested in a quote for")) {
+                     messageArea.value = ""; 
                  }
              }
           }
           
           modal.style.display = 'flex';
           document.body.style.overflow = 'hidden';
-        });
+        }
       });
 
+      // CLOSE MODAL
       if (closeBtn) {
         closeBtn.addEventListener('click', function() {
           modal.style.display = 'none';
