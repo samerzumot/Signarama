@@ -141,4 +141,13 @@ document.addEventListener('DOMContentLoaded', function () {
       }, 500);
     });
   }
+  // Email Obfuscation (Anti-Spam)
+  // dynamically sets the form action so scrapers don't see the email source
+  const quoteForms = document.querySelectorAll('#quote-form');
+  quoteForms.forEach(form => {
+    const u = 'info';
+    const d = 'signarama-vaughan.com';
+    form.action = 'https://formsubmit.co/' + u + '@' + d;
+  });
+
 });
