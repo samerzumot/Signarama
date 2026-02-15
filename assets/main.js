@@ -58,7 +58,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (messageArea) {
         if (productName) {
-          messageArea.value = "I am interested in a quote for " + productName + ".";
+          // Remove location suffix if present to make the message cleaner
+          var cleanName = productName
+            .replace(' - Toronto & Vaughan', '')
+            .replace(' in Vaughan', '')
+            .replace(' Vaughan', '');
+          messageArea.value = "I am interested in a quote for " + cleanName + ".";
         } else {
           const currentVal = messageArea.value;
           if (currentVal && currentVal.includes("I am interested in a quote for")) {

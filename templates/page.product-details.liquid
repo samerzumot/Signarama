@@ -187,119 +187,203 @@
   </script>
 
   <style>
-    .product-details-page {
-      padding: 160px 0 60px 0; /* Huge top padding for fixed header */
+    :root {
+      --primary-red: #d32f2f;
+      --text-dark: #333;
+      --text-light: #666;
     }
+
+    .product-details-page {
+      padding: 160px 0 80px 0; /* More breathing room at bottom */
+      background-color: #fcfcfc; /* Subtle off-white background for premium feel */
+    }
+    
     .page-width.container {
-        max-width: 1200px;
+        max-width: 1280px; /* Slightly wider for modern screens */
         margin: 0 auto;
         padding: 0 2rem;
     }
+
     .product-hero {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      margin-bottom: 4rem;
-      align-items: start;
+      grid-template-columns: 1.1fr 0.9fr; /* Give image slightly more width */
+      gap: 5rem;
+      margin-bottom: 5rem;
+      align-items: center; /* Center align vertically for balance */
     }
     
     .product-image-container {
       width: 100%;
-      height: 500px !important;
+      height: 550px !important; /* Taller hero image */
       background: #ffffff;
       border: 1px solid #eee;
-      border-radius: 8px;
+      border-radius: 12px; /* Softer corners */
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Soft shadow */
     }
 
     #main-product-image {
       width: 100% !important;
       height: 100% !important;
       object-fit: contain !important;
-      max-height: 500px;
+      max-height: 550px;
+      padding: 20px;
+    }
+    
+    .product-info {
+      padding-right: 1rem;
+    }
+
+    .product-title {
+      font-size: 3rem; /* Larger, more impactful title */
+      line-height: 1.1;
+      font-weight: 800;
+      color: #222;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .product-description-short {
+      font-size: 1.35rem; /* Larger introduction text */
+      line-height: 1.5;
+      color: #444;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-description-long {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #666;
+      margin-bottom: 2.5rem;
     }
     
     /* Horizontal Scroll Gallery */
     .gallery-scroll-container {
       display: flex;
       overflow-x: auto;
-      gap: 15px;
-      padding-bottom: 5px;
+      gap: 20px;
+      padding: 10px 5px 20px 5px; /* Padding for shadow */
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
-      height: 220px; /* Force container height */
-      align-items: center;
+      height: auto;
+      align-items: flex-start;
     }
+    
     .gallery-item {
-      flex: 0 0 280px !important; 
-      width: 280px !important;
-      height: 200px !important;
+      flex: 0 0 300px !important; 
+      width: 300px !important;
+      height: 220px !important;
       scroll-snap-align: start;
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       background: #fff;
-      border: 1px solid #eee;
+      border: 1px solid #f0f0f0;
+      transition: transform 0.2s;
     }
+    
+    .gallery-item:hover {
+      transform: translateY(-3px);
+    }
+    
     .gallery-item img {
       width: 100% !important;
       height: 100% !important;
-      object-fit: cover !important; /* Thumbnails always fill the box */
+      object-fit: cover !important; 
       display: block;
     }
 
     .btn-primary {
-      background-color: #d32f2f;
+      background-color: var(--primary-red);
       color: white !important;
-      padding: 1.2rem 2.5rem;
+      padding: 1.3rem 3rem; /* Larger button */
       border: none;
-      border-radius: 6px;
-      font-size: 1.2rem;
-      font-weight: 800;
+      border-radius: 8px;
+      font-size: 1.3rem;
+      font-weight: 700;
       cursor: pointer;
       text-transform: uppercase;
       text-decoration: none;
       display: inline-block;
-      transition: background-color 0.2s;
-      box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+      transition: all 0.2s;
+      box-shadow: 0 8px 20px rgba(211, 47, 47, 0.25);
     }
+    
     .btn-primary:hover {
       background-color: #b01f15;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(211, 47, 47, 0.35);
+    }
+
+    @media (max-width: 1024px) {
+      .product-title { font-size: 2.5rem; }
+      .product-hero { gap: 3rem; }
     }
 
     @media (max-width: 900px) {
       .product-details-page {
-          padding-top: 120px;
+          padding-top: 130px;
+          padding-bottom: 40px;
       }
       .product-hero {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
+        margin-bottom: 3rem;
       }
+      
+      .product-image-container {
+        height: 350px !important; /* Smaller on mobile */
+      }
+      
+      #main-product-image {
+        max-height: 350px;
+      }
+
+      .product-info {
+        padding-right: 0;
+        text-align: left; /* Keep left align for readability */
+      }
+      
+      .product-title {
+        font-size: 2.2rem; /* Readable but smaller */
+        margin-bottom: 1rem;
+      }
+      
+      .product-description-short {
+        font-size: 1.2rem;
+      }
+
       /* Made Button Static for Better Visibility */
       .cta-wrapper {
         position: static;
         width: 100%;
-        margin-top: 1.5rem;
+        margin-top: 2rem;
         background: transparent;
         box-shadow: none;
         padding: 0;
-        text-align: left;
+        text-align: center; /* Center button on mobile */
       }
+      
       .btn-primary {
         width: 100%;
+        max-width: 400px;
         font-size: 1.2rem;
-        padding: 1rem;
+        padding: 1.2rem;
       }
+      
       .page-width.container {
-        padding-bottom: 40px; 
+        padding: 0 1.5rem; /* Slightly less padding on mobile */
       }
+      
       .gallery-item {
-        flex: 0 0 200px;
-        height: 150px;
+        flex: 0 0 240px !important;
+        width: 240px !important;
+        height: 160px !important;
       }
     }
   </style>
