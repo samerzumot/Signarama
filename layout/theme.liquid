@@ -64,7 +64,7 @@
                 <button id="close-success-btn" style="margin-top: 1rem; padding: 0.8rem 1.5rem; background: #ddd; border: none; border-radius: 4px; cursor: pointer;">Close</button>
             </div>
 
-            <form id="quote-form" action="https://formsubmit.co/info@signarama-vaughan.com" method="POST" enctype="multipart/form-data">
+            <form id="quote-form" action="" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="_subject" value="New Quote Request - Signarama Vaughan">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_template" value="table">
@@ -96,6 +96,19 @@
 
   <!-- Global Modal Logic -->
   <!-- Global Modal Logic -->
+  <!-- Global Modal Logic -->
+  <script>
+    (function() {
+      // Obfuscate email to prevent scraping
+      var user = 'info';
+      var domain = 'signarama-vaughan.com';
+      var email = user + '@' + domain;
+      var form = document.getElementById('quote-form');
+      if (form) {
+        form.action = 'https://formsubmit.co/' + email;
+      }
+    })();
+  </script>
   <script src="{{ 'main.js' | asset_url }}" type="module" defer></script>
 </body>
 </html>
