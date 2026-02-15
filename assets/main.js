@@ -1,5 +1,7 @@
 import { products } from './data.js';
 
+console.log("DEBUG: Main.js v3.0 loaded - Native Form Submission Active");
+
 const grid = document.getElementById('product-grid');
 
 /*
