@@ -132,9 +132,9 @@
       <div class="product-hero">
         <div class="product-image-container">
            {% if main_image contains 'http' %}
-             <img src="{{ main_image }}" alt="{{ title }} - Main Image" id="main-product-image" width="800" height="600" style="width: 100%; height: auto; object-fit: contain;">
+             <img src="{{ main_image }}" alt="{{ title }} - Main Image" id="main-product-image" width="800" height="600" fetchpriority="high" decoding="sync" style="width: 100%; height: auto; object-fit: contain;">
            {% else %}
-             <img src="{{ main_image | asset_url }}" alt="{{ title }} - Main Image" id="main-product-image" width="800" height="600" style="width: 100%; height: auto; object-fit: contain;">
+             <img src="{{ main_image | asset_url }}" alt="{{ title }} - Main Image" id="main-product-image" width="800" height="600" fetchpriority="high" decoding="sync" style="width: 100%; height: auto; object-fit: contain;">
            {% endif %}
         </div>
         
@@ -158,9 +158,9 @@
           {% for img in gallery_images %}
             <div class="gallery-item">
               {% if img contains 'http' %}
-                 <img src="{{ img }}" alt="{{ title }} Gallery Image {{ forloop.index }}" loading="lazy">
+                 <img src="{{ img }}" alt="{{ title }} Gallery Image {{ forloop.index }}" loading="lazy" decoding="async" width="300" height="220">
               {% else %}
-                 <img src="{{ img | asset_url }}" alt="{{ title }} Gallery Image {{ forloop.index }}" loading="lazy">
+                 <img src="{{ img | asset_url }}" alt="{{ title }} Gallery Image {{ forloop.index }}" loading="lazy" decoding="async" width="300" height="220">
               {% endif %}
             </div>
           {% endfor %}
