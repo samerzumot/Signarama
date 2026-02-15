@@ -145,7 +145,10 @@
         }
     }
 
-    isExistParentAndUpdateElement();
+    // Defer execution to prevent layout thrashing (forced reflow)
+    window.requestAnimationFrame(() => {
+        isExistParentAndUpdateElement();
+    });
 
     //获取店铺按钮样式
     function getBtnStyle(btn) {
