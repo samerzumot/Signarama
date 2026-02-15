@@ -2,11 +2,11 @@ export const products = [
     {
         slug: '3d-signs-lettering',
         title: '3D Signs & Lettering',
-        image: '/assets/images/products/3D%20Lettering.webp',
+        image: '/assets/images/products/3d-lettering.webp',
         description: 'Custom 3D illuminated and non-illuminated signs that provide depth and impact for your brand.',
         longDescription: 'Our 3D lettering is precision-engineered to make your brand stand out. Crafted from premium aluminum, high-grade acrylic, or PVC, these letters are weather-resistant and offer a high-end look for any building facade.',
         gallery: [
-            '/assets/images/products/3D%20Lettering.webp',
+            '/assets/images/products/3d-lettering.webp',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/TrimDepot.jpg?v=1666724364',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/AquaStar.jpg?v=1666724374',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/Elite.jpg?v=1666724374'

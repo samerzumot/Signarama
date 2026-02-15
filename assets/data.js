@@ -11,7 +11,7 @@ export const products = [
             '3d-2016-photo.jpg',
             '3d-46856.jpg',
             '3d-5.png',
-            '3D%20Lettering.webp',
+            '3d-lettering.webp',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/TrimDepot.jpg?v=1666724364',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/AquaStar.jpg?v=1666724374',
             'https://cdn.shopify.com/s/files/1/0553/3034/1058/products/Elite.jpg?v=1666724374'
