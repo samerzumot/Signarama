@@ -97,41 +97,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // AJAX Form Handling
-  const form = document.getElementById('quote-form');
-  const successMsg = document.getElementById('success-message');
-  const closeSuccess = document.getElementById('close-success-btn');
-
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const btn = form.querySelector('.btn-submit');
-      const originalText = btn.innerText;
-      btn.innerText = 'Sending...';
-      btn.disabled = true;
-
-      fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      })
-        .then(response => {
-          if (response.ok) {
-            // Redirect to Thank You Page for Ads Tracking
-            window.location.href = "https://custombusinesssigns.ca/pages/thank-you";
-          } else {
-            alert('There was an issue submitting your quote. Please call us directly.');
-            btn.innerText = originalText;
-            btn.disabled = false;
-          }
-        })
-        .catch(err => alert('Error sending form. Please try again.'))
-        .finally(() => {
-          btn.innerText = originalText;
-          btn.disabled = false;
-        });
-    });
-  }
+  // AJAX Form Handling REMOVED to allow native submission with _next redirect
+  // The form will now submit directly to FormSubmit.co, which handles the redirect.
 
   if (closeSuccess) {
     closeSuccess.addEventListener('click', function () {
@@ -140,10 +107,6 @@ document.addEventListener('DOMContentLoaded', function () {
         modal.classList.remove('active');
         document.body.style.overflow = '';
       }
-      setTimeout(() => {
-        if (successMsg) successMsg.style.display = 'none';
-        if (form) form.style.display = 'block';
-      }, 500);
     });
   }
   // Email Obfuscation (Anti-Spam)
