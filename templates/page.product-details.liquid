@@ -144,7 +144,8 @@
           <p class="product-description-long">{{ long_description }}</p>
           
           <div class="cta-wrapper" style="margin-top: 3rem;">
-             <button id="product-quote-trigger" class="btn-primary btn-quote" data-product="{{ title }}">Get {{ title }} Quote</button>
+             {% assign clean_title = title | remove: " in Vaughan" | remove: " - Toronto & Vaughan" | remove: " Vaughan" %}
+             <button id="product-quote-trigger" class="btn-primary btn-quote" data-product="{{ title }}">Get {{ clean_title }} Quote</button>
           </div>
         </div>
       </div>
@@ -187,12 +188,8 @@
   </script>
 
   <style>
-    :root {
-      --primary-red: #d32f2f;
-      --text-dark: #333;
-      --text-light: #666;
-    }
-
+    /* :root block removed to prevent overriding global theme variables (header color fix) */
+    
     .product-details-page {
       padding: 160px 0 80px 0; /* More breathing room at bottom */
       background-color: #fcfcfc; /* Subtle off-white background for premium feel */
@@ -327,7 +324,7 @@
 
     @media (max-width: 900px) {
       .product-details-page {
-          padding-top: 130px;
+          padding-top: 180px; /* Increased to prevent header overlap */
           padding-bottom: 40px;
       }
       .product-hero {
