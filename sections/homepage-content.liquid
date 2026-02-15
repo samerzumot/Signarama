@@ -1,7 +1,7 @@
 <section class="hero-section">
       <div class="video-background">
         <!-- User provided video expected at this path -->
-        <video autoplay muted loop playsinline webkit-playsinline id="hero-video">
+        <video autoplay muted loop playsinline webkit-playsinline id="hero-video" poster="{{ 'video-poster.jpg' | asset_url }}">
             <!-- Falling back to direct URL if asset_url fails or just keep as is if video not in assets -->
             <!-- Ideally videos should be in assets too, but large files might stay in CDN -->
             <!-- For now assuming it is external or needs upload. We can try asset_url -->
