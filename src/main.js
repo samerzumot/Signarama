@@ -116,9 +116,14 @@ document.addEventListener('DOMContentLoaded', function () {
         headers: { 'Accept': 'application/json' }
       })
         .then(response => {
-          form.style.display = 'none';
-          if (successMsg) successMsg.style.display = 'block';
-          form.reset();
+          if (response.ok) {
+            // Redirect to Thank You Page for Ads Tracking
+            window.location.href = "https://custombusinesssigns.ca/pages/thank-you";
+          } else {
+            alert('There was an issue submitting your quote. Please call us directly.');
+            btn.innerText = originalText;
+            btn.disabled = false;
+          }
         })
         .catch(err => alert('Error sending form. Please try again.'))
         .finally(() => {
