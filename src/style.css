@@ -1036,6 +1036,35 @@ footer {
   fill: currentColor;
 }
 
+.footer-info {
+  margin-bottom: 2rem;
+}
+
+.footer-tagline {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.footer-info address {
+  font-style: normal;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #aaa;
+}
+
+.footer-info a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-info a:hover {
+  color: var(--primary-red);
+  text-decoration: underline;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 900px) {
   .main-header .container {
