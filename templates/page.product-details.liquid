@@ -249,12 +249,120 @@
         prevBtn.addEventListener('click', () => {
           scroller.scrollBy({ left: -320, behavior: 'smooth' });
         });
+        
         nextBtn.addEventListener('click', () => {
           scroller.scrollBy({ left: 320, behavior: 'smooth' });
         });
       }
+
+      // ---------------------------------------------------------
+      // LIGHTBOX LOGIC
+      // ---------------------------------------------------------
+      var lightbox = document.getElementById('product-lightbox');
+      var lightboxImg = document.getElementById('lightbox-img');
+      var closeBtn = document.querySelector('.lightbox-close');
+
+      if (mainImage && lightbox && lightboxImg) {
+          // Open Lightbox on Main Image Click
+          mainImage.style.cursor = 'zoom-in';
+          mainImage.addEventListener('click', function() {
+              lightbox.style.display = 'flex';
+              lightboxImg.src = this.src;
+          });
+
+          // Close Lightbox
+          function closeLightbox() {
+              lightbox.style.display = 'none';
+          }
+
+          if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+
+          // Close on backdrop click
+          lightbox.addEventListener('click', function(e) {
+              if (e.target === lightbox) {
+                  closeLightbox();
+              }
+          });
+          
+          // Close on Escape key
+          document.addEventListener('keydown', function(e) {
+              if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+                  closeLightbox();
+              }
+          });
+      }
+
     });
   </script>
+
+  <!-- LIGHTBOX HTML -->
+  <div id="product-lightbox" class="lightbox" style="display: none;">
+      <span class="lightbox-close">&times;</span>
+      <img class="lightbox-content" id="lightbox-img">
+  </div>
+
+  <style>
+      /* Lightbox CSS */
+      .lightbox {
+          position: fixed;
+          z-index: 9999;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background-color: rgba(0,0,0,0.9);
+          display: flex; /* Hidden by default via inline style, allows flex centering when shown */
+          align-items: center;
+          justify-content: center;
+          animation: fadeIn 0.3s;
+      }
+      
+      .lightbox-content {
+          margin: auto;
+          display: block;
+          max-width: 90%;
+          max-height: 90vh;
+          border-radius: 4px;
+          box-shadow: 0 0 20px rgba(255,255,255,0.1);
+          animation: zoomIn 0.3s;
+      }
+      
+      .lightbox-close {
+          position: absolute;
+          top: 20px;
+          right: 35px;
+          color: #f1f1f1;
+          font-size: 40px;
+          font-weight: bold;
+          transition: 0.3s;
+          cursor: pointer;
+          z-index: 10000;
+      }
+      
+      .lightbox-close:hover,
+      .lightbox-close:focus {
+          color: #bbb;
+          text-decoration: none;
+          cursor: pointer;
+      }
+
+      @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+      }
+
+      @keyframes zoomIn {
+        from {transform: scale(0.9);}
+        to {transform: scale(1);}
+      }
+      
+      @media only screen and (max-width: 700px){
+        .lightbox-content {
+          width: 100%;
+        }
+      }
+  </style>
 
   <style>
     /* :root block removed to prevent overriding global theme variables (header color fix) */
