@@ -130,12 +130,20 @@
       
       <!-- Hero / Main Product Section -->
       <div class="product-hero">
-        <div class="product-image-container">
+      <div class="product-image-container" style="position: relative;">
+           <button class="main-image-nav prev" aria-label="Previous Image">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+           </button>
+           
            {% if main_image contains 'http' %}
              <img src="{{ main_image }}" alt="{{ title }} - Main Image" id="main-product-image" width="800" height="600" fetchpriority="high" decoding="sync" style="width: 100%; height: auto; object-fit: contain;">
            {% else %}
              <img src="{{ main_image | asset_url }}" alt="{{ title }} - Main Image" id="main-product-image" width="800" height="600" fetchpriority="high" decoding="sync" style="width: 100%; height: auto; object-fit: contain;">
            {% endif %}
+
+           <button class="main-image-nav next" aria-label="Next Image">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+           </button>
         </div>
         
         <div class="product-info">
@@ -186,11 +194,49 @@
       var mainImage = document.getElementById('main-product-image');
       if (mainImage) {
           var items = document.querySelectorAll('.gallery-item img');
+          var currentIndex = 0;
+          
+          // Collect all image sources
+          var images = [];
+          // Add main image as first? No, usually gallery includes main? 
+          // Use gallery-item imgs as the source list.
+          // Wait, the main image might NOT be in the gallery loop if not duplicated.
+          // The template has `gallery_images`. Does it include `main_image`?
+          // Looking at data logic: `gallery_images = "..." | split: ','`.
+          // Often main image is separate.
+          // I will use `items` as the source of truth for navigation if user wants to scroll THROUGH gallery on main image.
+          // Or should I include the initial main image?
+          // Let's assume the gallery items represent the browsable set.
+          
           for (var i = 0; i < items.length; i++) {
+              images.push(items[i].src);
               items[i].addEventListener('click', function() {
                   mainImage.src = this.src;
+                  // Update index based on click
+                  // Find index of this.src in images array
+                  // Need to be careful with URLs (absolute vs relative). match by checking logic or just tracking 'i'
+              });
+              items[i].setAttribute('data-index', i);
+              items[i].addEventListener('click', function() {
+                 currentIndex = parseInt(this.getAttribute('data-index'));
               });
               items[i].style.cursor = 'pointer';
+          }
+
+          // Main Image Arrows
+          const mainPrev = document.querySelector('.main-image-nav.prev');
+          const mainNext = document.querySelector('.main-image-nav.next');
+
+          if (mainPrev && mainNext && images.length > 0) {
+              mainPrev.addEventListener('click', function() {
+                  currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+                  mainImage.src = images[currentIndex];
+              });
+
+              mainNext.addEventListener('click', function() {
+                  currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+                  mainImage.src = images[currentIndex];
+              });
           }
       }
 
@@ -308,6 +354,10 @@
       transition: transform 0.2s;
     }
 
+      border: 1px solid #f0f0f0;
+      transition: transform 0.2s;
+    }
+
     .gallery-nav {
       position: absolute;
       top: 50%;
@@ -337,6 +387,54 @@
     
     .gallery-nav.next {
       right: -20px;
+    }
+    
+    /* Main Image Navigation */
+    .main-image-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: all 0.2s;
+      opacity: 0; /* Hidden by default, shown on hover */
+    }
+
+    .product-image-container:hover .main-image-nav {
+        opacity: 1;
+    }
+
+    .main-image-nav:hover {
+      background: rgba(255, 255, 255, 0.95);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .main-image-nav.prev {
+      left: 20px;
+    }
+
+    .main-image-nav.next {
+      right: 20px;
+    }
+
+    /* Mobile: Always visible arrows */
+    @media (max-width: 900px) {
+        .main-image-nav {
+            opacity: 1;
+            width: 40px;
+            height: 40px;
+        }
+        .main-image-nav.prev { left: 10px; }
+        .main-image-nav.next { right: 10px; }
     }
     
     @media (max-width: 900px) {
