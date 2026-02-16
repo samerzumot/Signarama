@@ -149,13 +149,16 @@
       var email = user + '@' + domain;
       var form = document.getElementById('quote-form');
       if (form) {
-        // Standard submission endpoint (no /ajax/)
-        form.action = 'https://formsubmit.co/' + email;
+        // Use AJAX endpoint
+        var actionUrl = "https://formsubmit.co/ajax/" + email;
         
         // File Validation (Count & Size)
         var fileInput = document.getElementById('file');
+        var successMessage = document.getElementById('success-message');
         
         form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Always prevent default to handle via AJAX
+            
             var files = fileInput.files;
             
             // Check Total Size
@@ -166,15 +169,61 @@
 
             // 10MB = 10 * 1024 * 1024 bytes
             if (totalSize > 10 * 1024 * 1024) {
-                e.preventDefault(); // Prevent submission only if invalid
                 alert('Total file size exceeds 10MB limit. Please reduce file size or quantity.');
                 return;
             }
 
-            // If valid, allow standard submission to proceed (Action -> FormSubmit -> Thank You Page)
             var submitBtn = form.querySelector('.btn-submit');
+            var originalBtnText = submitBtn.innerText;
             submitBtn.innerText = 'Sending...';
-            // Note: form submits natively now
+            submitBtn.disabled = true;
+            
+            // Create FormData
+            var formData = new FormData(form);
+            
+            // Explicitly handle files
+            // Remove any auto-caught file input to ensure we control the key
+            if (formData.has('attachment')) formData.delete('attachment'); 
+            if (formData.has('attachment[]')) formData.delete('attachment[]');
+            
+            // Append files with 'attachment[]' key to ensure array handling on backend
+            for (var i = 0; i < files.length; i++) {
+                formData.append('attachment[]', files[i]);
+            }
+
+            fetch(actionUrl, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success - Redirect to Thank You page
+                    var nextInput = form.querySelector('input[name="_next"]');
+                    if (nextInput && nextInput.value) {
+                         window.location.href = nextInput.value;
+                    } else {
+                        // Fallback
+                        form.style.display = 'none';
+                        successMessage.style.display = 'block';
+                        form.reset();
+                    }
+                } else {
+                    return response.json().then(data => {
+                        throw new Error(data.message || 'Submission failed.');
+                    }).catch(err => {
+                        throw new Error('Server error occurred. Please try again later.');
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was a problem sending your quote request. Please try again or call us directly.');
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            });
         });
       }
     })();
