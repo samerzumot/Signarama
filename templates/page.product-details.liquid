@@ -153,8 +153,13 @@
       <hr style="margin: 3rem 0; border: 0; border-top: 1px solid #eee;">
 
       <!-- Image Gallery (Horizontal Scroll) - Header Removed -->
-      <div class="product-gallery">
-        <div class="gallery-scroll-container">
+      <!-- Image Gallery (Horizontal Scroll) -->
+      <div class="product-gallery" style="position: relative;">
+        <button class="gallery-nav prev" aria-label="Previous Image">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        
+        <div class="gallery-scroll-container" id="gallery-scroller">
           {% for img in gallery_images %}
             <div class="gallery-item">
               {% if img contains 'http' %}
@@ -165,6 +170,10 @@
             </div>
           {% endfor %}
         </div>
+
+        <button class="gallery-nav next" aria-label="Next Image">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
       </div>
 
     </div>
@@ -183,6 +192,20 @@
               });
               items[i].style.cursor = 'pointer';
           }
+      }
+
+      // Scroll Arrow Logic
+      const scroller = document.getElementById('gallery-scroller');
+      const prevBtn = document.querySelector('.gallery-nav.prev');
+      const nextBtn = document.querySelector('.gallery-nav.next');
+
+      if (scroller && prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+          scroller.scrollBy({ left: -320, behavior: 'smooth' });
+        });
+        nextBtn.addEventListener('click', () => {
+          scroller.scrollBy({ left: 320, behavior: 'smooth' });
+        });
       }
     });
   </script>
@@ -281,7 +304,48 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       background: #fff;
       border: 1px solid #f0f0f0;
+      border: 1px solid #f0f0f0;
       transition: transform 0.2s;
+    }
+
+    .gallery-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: all 0.2s;
+    }
+    
+    .gallery-nav:hover {
+      background: #f8f8f8;
+      box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+    }
+    
+    .gallery-nav.prev {
+      left: -20px;
+    }
+    
+    .gallery-nav.next {
+      right: -20px;
+    }
+    
+    @media (max-width: 900px) {
+       .gallery-nav {
+         width: 36px;
+         height: 36px;
+       }
+       .gallery-nav.prev { left: 0; }
+       .gallery-nav.next { right: 0; }
     }
     
     .gallery-item:hover {
