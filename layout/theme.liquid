@@ -178,12 +178,12 @@
             submitBtn.innerText = 'Sending...';
             submitBtn.disabled = true;
             
-            // Create FormData and map files to distinct keys to avoid array issues
+            // Create FormData and map files to 'attachment' key multiple times
             var formData = new FormData(form);
             formData.delete('attachment[]'); // Remove the raw array input
             
             for (var i = 0; i < files.length; i++) {
-                formData.append('attachment' + (i + 1), files[i]);
+                formData.append('attachment', files[i]);
             }
 
             fetch(actionUrl, {
