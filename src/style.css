@@ -1049,15 +1049,20 @@ footer {
 
 .footer-info address {
   font-style: normal;
-  line-height: 1.6;
+  line-height: 1.8;
   font-size: 0.95rem;
-  color: #aaa;
+  color: #ccc;
+}
+
+.footer-info strong {
+  color: #fff;
 }
 
 .footer-info a {
   color: #fff;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 .footer-info a:hover {
