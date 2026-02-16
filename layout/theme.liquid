@@ -72,7 +72,7 @@
   </style>
   <script>
     // Hack to get the base asset URL
-    window.assetBaseUrl = "{{ 'main.js' | asset_url }}".split('main.js')[0];
+    window.assetBaseUrl = "{{ 'main.v4.js' | asset_url }}".split('main.v4.js')[0];
   </script>
   <script type="module" src="{{ 'main.v4.js' | asset_url }}"></script>
   <!-- Force refresh: {{ 'now' | date: '%s' }} -->
