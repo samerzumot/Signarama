@@ -212,8 +212,8 @@
               images.push(items[i].src);
               items[i].addEventListener('click', function() {
                   mainImage.src = this.src;
-                        <label for="file">Upload Designs (Max 3, hold Ctrl/Cmd to select multiple)</label>
-                        <input type="file" id="file" name="attachment" multiple>is.src in images array
+                  // Update index based on click
+                  // Find index of this.src in images array
                   // Need to be careful with URLs (absolute vs relative). match by checking logic or just tracking 'i'
               });
               items[i].setAttribute('data-index', i);
