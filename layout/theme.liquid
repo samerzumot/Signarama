@@ -126,8 +126,8 @@
                 <div class="form-group file-upload" style="margin-bottom: 1.5rem; border: 2px dashed #ddd; padding: 1rem; border-radius: 4px; text-align: center;">
                 <label style="display: block; margin-bottom: 0.5rem; color: #666; font-weight: 600;">Upload Design (Optional) - Max 10MB Total</label>
                 <div style="text-align: center; margin-bottom: 10px;">
-                    <!-- Use simple 'attachment' name. Browser handles multipart sending. -->
-                    <input type="file" id="file" name="attachment" style="width: 100%;" multiple accept="image/*,application/pdf">
+                    <!-- Visual input only. JS distributes files to hidden inputs. -->
+                    <input type="file" id="file" style="width: 100%;" multiple accept="image/*,application/pdf">
                 </div>
                 <small style="color: #666; display: block; margin-top: 5px;">Accepted files: Images, PDF.</small>
                 </div>
@@ -149,17 +149,45 @@
       var email = user + '@' + domain;
       var form = document.getElementById('quote-form');
       if (form) {
-        // Use AJAX endpoint
-        var actionUrl = "https://formsubmit.co/ajax/" + email;
+        // Standard submission
+        form.action = 'https://formsubmit.co/' + email;
         
-        // File Validation (Count & Size)
-        var fileInput = document.getElementById('file');
-        var successMessage = document.getElementById('success-message');
+        var visualInput = document.getElementById('file');
         
-        form.addEventListener('submit', function(e) {
-            e.preventDefault(); // Always prevent default to handle via AJAX
+        // Hidden inputs container
+        var hiddenContainer = document.createElement('div');
+        hiddenContainer.style.display = 'none';
+        form.appendChild(hiddenContainer);
+
+        // Create 5 hidden file inputs for split uploading
+        var hiddenInputs = [];
+        for (var i = 1; i <= 5; i++) {
+            var inp = document.createElement('input');
+            inp.type = 'file';
+            inp.name = 'attachment' + i;
+            hiddenContainer.appendChild(inp);
+            hiddenInputs.push(inp);
+        }
+
+        // When visual input changes, distribute files to hidden inputs
+        visualInput.addEventListener('change', function() {
+            var files = this.files;
             
-            var files = fileInput.files;
+            // Reset hidden inputs
+            hiddenInputs.forEach(function(input) {
+                input.value = '';
+            });
+
+            // Distribute
+            for (var i = 0; i < files.length && i < 5; i++) {
+                 var dt = new DataTransfer();
+                 dt.items.add(files[i]);
+                 hiddenInputs[i].files = dt.files;
+            }
+        });
+
+        form.addEventListener('submit', function(e) {
+            var files = visualInput.files;
             
             // Check Total Size
             var totalSize = 0;
@@ -169,61 +197,14 @@
 
             // 10MB = 10 * 1024 * 1024 bytes
             if (totalSize > 10 * 1024 * 1024) {
+                e.preventDefault(); 
                 alert('Total file size exceeds 10MB limit. Please reduce file size or quantity.');
                 return;
             }
 
+            // Standard submission proceeds with hidden inputs populated
             var submitBtn = form.querySelector('.btn-submit');
-            var originalBtnText = submitBtn.innerText;
             submitBtn.innerText = 'Sending...';
-            submitBtn.disabled = true;
-            
-            // Create FormData
-            var formData = new FormData(form);
-            
-            // Explicitly handle files
-            // Remove any auto-caught file input to ensure we control the key
-            if (formData.has('attachment')) formData.delete('attachment'); 
-            if (formData.has('attachment[]')) formData.delete('attachment[]');
-            
-            // Append files with 'attachment[]' key to ensure array handling on backend
-            for (var i = 0; i < files.length; i++) {
-                formData.append('attachment[]', files[i]);
-            }
-
-            fetch(actionUrl, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Success - Redirect to Thank You page
-                    var nextInput = form.querySelector('input[name="_next"]');
-                    if (nextInput && nextInput.value) {
-                         window.location.href = nextInput.value;
-                    } else {
-                        // Fallback
-                        form.style.display = 'none';
-                        successMessage.style.display = 'block';
-                        form.reset();
-                    }
-                } else {
-                    return response.json().then(data => {
-                        throw new Error(data.message || 'Submission failed.');
-                    }).catch(err => {
-                        throw new Error('Server error occurred. Please try again later.');
-                    });
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('There was a problem sending your quote request. Please try again or call us directly.');
-                submitBtn.innerText = originalBtnText;
-                submitBtn.disabled = false;
-            });
         });
       }
     })();
