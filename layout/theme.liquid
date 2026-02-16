@@ -126,7 +126,8 @@
                 <div class="form-group file-upload" style="margin-bottom: 1.5rem; border: 2px dashed #ddd; padding: 1rem; border-radius: 4px; text-align: center;">
                 <label style="display: block; margin-bottom: 0.5rem; color: #666; font-weight: 600;">Upload Design (Optional) - Max 10MB Total</label>
                 <div style="text-align: center; margin-bottom: 10px;">
-                    <input type="file" id="file" name="attachment[]" style="width: 100%;" multiple>
+                    <!-- Use simple 'attachment' name. Browser handles multipart sending. -->
+                    <input type="file" id="file" name="attachment" style="width: 100%;" multiple accept="image/*,application/pdf">
                 </div>
                 <small style="color: #666; display: block; margin-top: 5px;">Accepted files: Images, PDF.</small>
                 </div>
