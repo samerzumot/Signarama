@@ -124,7 +124,7 @@
                 </div>
                 
                 <div class="form-group file-upload" style="margin-bottom: 1.5rem; border: 2px dashed #ddd; padding: 1rem; border-radius: 4px; text-align: center;">
-                <label style="display: block; margin-bottom: 0.5rem; color: #666; font-weight: 600;">Upload Designs (Max 3 Files, 10MB Total)</label>
+                <label style="display: block; margin-bottom: 0.5rem; color: #666; font-weight: 600;">Upload Design (Optional) - Max 10MB Total</label>
                 <div style="text-align: center; margin-bottom: 10px;">
                     <input type="file" id="file" name="attachment[]" style="width: 100%;" multiple>
                 </div>
@@ -156,13 +156,6 @@
         form.addEventListener('submit', function(e) {
             var files = fileInput.files;
             
-            // 1. Check Count
-            if (files.length > 3) {
-                e.preventDefault();
-                alert('You can only upload a maximum of 3 files.');
-                return;
-            }
-
             // 2. Check Total Size
             var totalSize = 0;
             for (var i = 0; i < files.length; i++) {
