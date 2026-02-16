@@ -36,6 +36,15 @@
   {%- capture header_content -%}{{ content_for_header }}{%- endcapture -%}
   {{ header_content | replace: ' href=', ' media="print" onload="this.media=\'all\'" href=' }}
 
+  <!-- Global site tag (gtag.js) - Google Ads: AW-17956192139 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17956192139"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17956192139');
+  </script>
+
   <!-- Google Ads Call Tracking -->
   <script>
     gtag('config', 'AW-17956192139/8e71CI6OuvkbEIv_lvJC', {
