@@ -100,6 +100,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // AJAX Form Handling REMOVED to allow native submission with _next redirect
   // The form will now submit directly to FormSubmit.co, which handles the redirect.
 
+  const closeSuccess = document.querySelector('.success-content .btn-quote'); // Try to find a close button in success message
+
   if (closeSuccess) {
     closeSuccess.addEventListener('click', function () {
       if (modal) {
