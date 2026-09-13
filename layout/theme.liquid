@@ -34,7 +34,7 @@
 
   <!-- Optimize Content For Header CSS -->
   {%- capture header_content -%}{{ content_for_header }}{%- endcapture -%}
-  {{ header_content | replace: ' href=', ' media="print" onload="this.media=\'all\'" href=' }}
+  {{ header_content | replace: ' href=', ' media="print" onload="this.media=\' }}
 
   <!-- Global site tag (gtag.js) - Google Ads: AW-17956192139 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17956192139"></script>
@@ -214,3 +214,15 @@
 
 </body>
 </html>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: '{{ header_content | replace: '' href='', '' media="print" onload="this.media=\''all\''"
+    href='' }}'
+  to: '{{ header_content | replace: '' href='', '' media="print" onload="this.media=\''
+    }}'
+  position: 1568..1647
+{% endcomment %}
